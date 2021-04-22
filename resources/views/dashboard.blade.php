@@ -316,18 +316,37 @@
                                     <label for="model">Выберите модель</label> <br>
                                     <select name="model_id" id="model" class="models" required>
                                         <option value="">Модель</option>
+                                        @foreach(\App\Models\Madel::all() as $mark)
+                                            @if(strlen($mark->name) > 0)
+                                                <option value="{{ $mark->id }}">{{ $mark->name }}</option>
+                                            @endif
+                                        @endforeach
+
                                     </select>
                                 </div>
                                 <div class="uk-width-1-4@l">
                                     <label>Выберите поколение</label> <br>
                                     <select name="generation_id" class="generations" required>
                                         <option value="Поколение" selected>Поколение</option>
+
+                                        @foreach(\App\Models\Generation::all() as $mark)
+                                            @if(strlen($mark->name) > 0)
+                                                <option value="{{ $mark->id }}">{{ $mark->name }}</option>
+                                            @endif
+                                        @endforeach
+
                                     </select>
                                 </div>
                                 <div class="uk-width-1-4@l">
                                     <label >Выберите двигатель</label> <br>
                                     <select name="engine_id" class="engines" required>
                                         <option value="двигатель" selected>Двигатель</option>
+
+                                        @foreach(\App\Models\Engine::all() as $mark)
+                                            @if(strlen($mark->name) > 0)
+                                                <option value="{{ $mark->id }}">{{ $mark->name }}</option>
+                                            @endif
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="uk-width-4-4@l  uk-align-center">
@@ -729,6 +748,16 @@ $.ajaxSetup({
                 });
             </script>
         <script>
+        
+        let searchParams = new URLSearchParams(window.location.search);
+            $(".engines").val(searchParams.get('engine_id'));
+
+            $(".generations").val(searchParams.get('generation_id'));
+
+            $(".models").val(searchParams.get('model_id'));
+
+            $(".marks").val(searchParams.get('mark_id'));
+            
             $(".marks").on('change keyup focus', function (){
                 let marka = $(this).val();
                 $.ajax({
