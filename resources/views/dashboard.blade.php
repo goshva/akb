@@ -10,11 +10,7 @@
         } else {
             $link  = '/';
         }
-
-
-        /*
-
-
+/*
         if (isset($requests['depth']) && $requests['depth'] != 0 && isset($requests['height']) && $requests['height'] != 0 && isset($requests['width']) && $requests['width'] != 0){
            $products = \App\Models\Product::where('depth', '=', $requests['depth'])
            ->where('height', '=', $requests['height'])
@@ -59,7 +55,6 @@
             $products = \App\Models\Product::whereIn('article', $items)->get();
             $products = \App\Models\Product::paginate($products);
         }
-
     }
          */
 
@@ -353,172 +348,7 @@
                                     <input type="submit" class="uk-button uk-button-default aside__btnReset uk-width-1-1" value="Подобрать" style="background-color: #2A50B6 !important; color: #fff !important;;">
                                 </div>
 
-                            </form>   <!--
-                            <form id="select_form" action="/baza-dannyh-dlya-podbora-akkumulyatorov-po-marke-avto/demo-bazy-podbora-akb.html" uk-grid class="uk-margin-small">
-                                <div style="float:left">
-                                    <div class="i">
-                                        <select id="category1" name="type" style="width:200px">
-                                        <option value="12">Выберите тип</option>
-                                        <option value="0">Легковой</option>
-                                        <option value="1">Грузовой</option>
-                                        <option value="2">Спецтехника</option>
-                                        </select>
-                                        <i class="fa fa-angle-down" id="category1i" aria-hidden="true"></i>
-                                    </div>
-                                </div>
-                                <div style="float:left">
-                                    <div class="i">
-                                        <select id="type1" name="vendor" style="width:200px">
-                                        <option value="0">Производитель:</option>
-                                        </select>
-                                        <i class="fa fa-angle-down" aria-hidden="true" id="type1i"></i>
-                                    </div>
-                                </div>
-                                <div style="float:left">
-                                    <div class="i">
-                                        <select id="year1" name="marka" style="width:200px">
-                                        <option value="0">Марка:</option>
-                                        </select>
-                                        <i class="fa fa-angle-down" aria-hidden="true" id="year1i"></i>
-                                    </div>
-                                </div>
-                                <div style="float:left">
-                                    <div class="i">
-                                        <select id="modification1" name="year" style="width:200px">
-                                        <option value="0">Год выпуска:</option>
-                                        </select>
-                                        <i class="fa fa-angle-down" aria-hidden="true" id="modification1i"></i>
-                                    </div>
-                                </div>
-                                <div style="float:left">
-                                    <div class="i">
-                                        <select id="mod" name="mod" style="width:200px">
-                                        <option value="0">Модификация:</option>
-                                        </select>
-                                        <i class="fa fa-angle-down" aria-hidden="true" id="modification1i"></i>
-                                    </div>
-                                </div>
-                                </form>                        
-                                <script>
-function unwrap(node) {
-    node.replaceWith(...node.childNodes);
-}                                    
-		$(document).ready(function(){
-
-   
- 
-     $("select#type1").attr("disabled","disabled");
-	 $("#type1i").css({'backgroundColor' : '#e5dddd'});
-			    $("select#year1").attr("disabled","disabled");
-			    $("#year1i").css({'backgroundColor' : '#e5dddd'});
-			    $("select#modification1").attr("disabled","disabled");
-		        $("#modification1i").css({'backgroundColor' : '#e5dddd'});
-    		    $("select#mod").attr("disabled","disabled");
-                $("#mod").css({'backgroundColor' : '#e5dddd'});
-    $("select#category1").change(function(){
-    $("select#type1").attr("disabled","disabled");
-		 
-			   $("select#year1").attr("disabled","disabled");
-			   $("#year1i").css({'backgroundColor' : '#e5dddd'});
-			   $("select#modification1").attr("disabled","disabled");
-               $("#modification1i").css({'backgroundColor' : '#e5dddd'});
-    $("select#type1").html("<option>Ждите...</option>");
-//
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
-//
-    var type = $("select#category1 option:selected").attr('value');
-    //var url  = "https://bazadromm.ru/baza-dannyh-dlya-podbora-akkumulyatorov-po-marke-avto/demo-bazy-podbora-akb.html"
-    var url  = "/baza"
-    
-    $.post(url, 
-	{type:type,
-    
-    }, function(html){
-
-        $("select#type1").removeAttr("disabled");
-		$("#type1i").css({'backgroundColor' : '#fff'});
-	    $("select#type1").html(html);
-    });
-    });
-     $("select#type1").change(function(){
-            $("select#year1").attr("disabled","disabled");
-	        $("select#modification1").attr("disabled","disabled");
-   			$("#modification1i").css({'backgroundColor' : '#e5dddd'});
-            $("select#year1").html("<option>Ждите...</option>");
-            var type = $("select#category1 option:selected").attr('value');
-            var vendor = $("select#type1 option:selected").attr('value');
-            $.post("/baza", {type:type,vendor:vendor}, function(html){
-                $("select#year1").removeAttr("disabled");
-				$("#year1i").css({'backgroundColor' : '#fff'});
-                
-                $("select#year1").html(html);
-                unwrap(document.getElementsByClassName("model")[0])
-                //
-
-                //
-            });
-        });
-         
-              $("select#year1").change(function(){
-              $("select#modification1").attr("disabled","disabled");
-              $("select#modification1").html("<option>Ждите...</option>");
-              var type = $("select#category1 option:selected").attr('value');
-              var vendor = $("select#type1 option:selected").attr('value');
-              var marka = $("select#year1 option:selected").attr('value');
-			
-              $.post("/baza", {vendor:vendor,type:type,marka:marka}, function(html){
-                $("select#modification1").removeAttr("disabled");
-				$("select#mod").removeAttr("disabled");
-				$("#modification1i").css({'backgroundColor' : '#fff'});
-                $("select#modification1").html(html);
-              });
-              });
-
-			  $("select#modification1").change(function(){
-              $("select#modification1").attr("disabled","disabled");
-           
-              var type = $("select#category1 option:selected").attr('value');
-              var vendor = $("select#type1 option:selected").attr('value');
-              var marka = $("select#year1 option:selected").attr('value');
-			  var year = $("select#modification1 option:selected").attr('value');
-              $.post("/baza", {vendor:vendor,type:type,marka:marka,year:year}, function(html){
-                $("select#mod").removeAttr("disabled");
-				$("#mod").css({'backgroundColor' : '#fff'});
-                $("select#mod").html(html);
-              });
-              });
- 
-		$("select#mod").change(function(){
-           
-              var type = $("select#category1 option:selected").attr('value');
-              var vendor = $("select#type1 option:selected").attr('value');
-              var marka = $("select#year1 option:selected").attr('value');
-			  var year = $("select#modification1 option:selected").attr('value');
-			  var mod = $("select#mod option:selected").attr('value');
-            $.post("/baza", {vendor:vendor,type:type,marka:marka,year:year,mod:mod}, function(html){
-                $("div#result").html(html);
-                $("div#result").find("h3").first().hide();
-                $('.table-bordered tr').css('border', '1px solid #e5e7eb');
-                
-            });
-        });
-});
-		</script>
-        <div class="tagsHeaderContent" id="result"></div>
--->        
-<!--                           <iframe id="inlineFrameExample"
-    title="Inline Frame Example"
-    width="100%"
-    height="1000px"
-    src="https://bazadromm.ru/baza-dannyh-dlya-podbora-akkumulyatorov-po-marke-avto/demo-bazy-podbora-akb.html">
-    </iframe> -->
-
-
-
+                            </form>   
                             <div class="tagsHeaderContent">
 
                                 <div class="uk-inline">

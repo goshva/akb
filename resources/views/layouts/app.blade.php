@@ -499,11 +499,11 @@
                                     class="icon-search searchBar__btnIcon"></i></button>
                             <input class="uk-input searchBar__input" type="text" name="search_value"
                                    placeholder="Для более быстрого поиска напишите сюда, что хотите найти">
-                            <div class="searchBar__drop"
+                            <!--<div class="searchBar__drop"
                                  uk-drop="mode: click; pos: bottom-justify; boundary: #section2 > .searchBar; boundary-align: true">
                                 <div id="search_result">
 
-                                </div>
+                                </div> -->
                             </div>
 
                         </div>
