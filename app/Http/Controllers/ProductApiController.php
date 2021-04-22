@@ -50,7 +50,8 @@ class ProductApiController extends Controller
                 || $product_img->getMimeType() == 'image/jpeg'
                 || $product_img->getMimeType() == 'image/webp'
             ){
-                $path = $product_img->storePubliclyAs('public/products', $request->name.'_'.$request->article.'.'.$extension);
+                $id = random_int(1000, 1000000);
+                $path = $product_img->storePubliclyAs('public/products', $id.'_'.$request->article.'.'.$extension);
                 $product = Product::create([
                     'name' => $request->name,
                     'article' => $request->article,
@@ -123,7 +124,7 @@ class ProductApiController extends Controller
                     || $product_img->getMimeType() == 'image/jpeg'
                     || $product_img->getMimeType() == 'image/webp'
                 ){
-                    $path = $product_img->storePubliclyAs('public/products', $request->name.'_'.$request->article.'.'.$extension);
+                    $path = $product_img->storePubliclyAs('public/products', $id.'_'.$request->article.'.'.$extension);
                     $product->img = '/storage/'.$path = str_replace( 'public/', '', $path.'?v='.time());
                 }
             }
