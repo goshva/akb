@@ -138,13 +138,18 @@ class ProductController extends Controller
         } else {
             if(isset($requests['mark_id']) && isset($requests['model_id']) && isset($requests['generation_id']) && isset($requests['engine_id'])){
                 $articles = \App\Models\Article::where('mark_id', $requests['mark_id'])->where('engine_id', $requests['engine_id'])->get()->first();
+
+                
                if ($articles){
                    $list = $articles->list;
                    $items = explode(',', $list);
                    $items = Product::whereIn('article', $items)->get();
                    $items = Product::paginate($items)->appends(request()->query());
+
+                   
                } else {
                    $items = Product::paginate(Product::all())->appends(request()->query());
+                   
 
 
                    return view('dashboard')->with([
@@ -154,23 +159,21 @@ class ProductController extends Controller
                        'max' => Product::max('price')
                    ]);
                }
+               $mark_name = Mark::where('id', '=', $requests['mark_id'])->pluck('name');
+               $model_name = Madel::where('id', '=', $requests['model_id'])->pluck('name');
+               $generation_name = Generation::where('id', '=', $requests['generation_id'])->pluck('name');
+               $engine_name = Engine::where('id', '=', $requests['engine_id'])->pluck('name');
+               $requests['mark_name']=$mark_name[0];
+               $requests['model_name']=$model_name[0];
+               $requests['generation_name']=$generation_name[0];
+               $requests['engine_name']=$engine_name[0];                 
             } else {
                 $items = $productss->sortBy([
                     ['amperes', 'asc']
                 ]);
                 $items = Product::paginate($items)->appends(request()->query());
             }
-            $mark_name = Mark::where('id', '=', $requests['mark_id'])->pluck('name');
-            
-            $model_name = Madel::where('id', '=', $requests['model_id'])->pluck('name');
-            $generation_name = Generation::where('id', '=', $requests['generation_id'])->pluck('name');
-            $engine_name = Engine::where('id', '=', $requests['engine_id'])->pluck('name');
-            
-            $requests['mark_name']=$mark_name[0];
-            $requests['model_name']=$model_name[0];
-            $requests['generation_name']=$generation_name[0];
-            $requests['engine_name']=$engine_name[0];            
-
+          
 
             return view('dashboard')->with([
                 'products' => $items,
