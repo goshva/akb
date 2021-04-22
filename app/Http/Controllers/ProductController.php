@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Mark;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -208,7 +209,26 @@ class ProductController extends Controller
     public function show(Product $product, Request $request)
     {
         $search_value = $request->search_value;
+        
         $find = $product::where('name', 'like', "%".$search_value."%")->get();
+        
+        if ($find->isEmpty()){
+            $marks = Mark::all();
+            //$find = $marks->::where('name', 'like', "%".$search_value."%")->get();
+            $find = Mark::where('name', 'like', "%".strtoupper($search_value)."%")->pluck('id'); //all([]);
+            $articles =  \App\Models\Article::where('mark_id',$find)->pluck('list');
+
+            $arrArticles = array();
+            foreach ($articles as &$value) {
+                $arr = explode(",",$value);
+                foreach ($arr as &$art) {
+                    array_push($arrArticles,$art);
+                }
+            }
+            //dd(array_unique($arrArticles));
+            $find = $product::whereIn('article', $arrArticles)->get();
+
+        }
         $find = $product::paginate($find)->appends(request()->query());
         $requests = $request->all();
         return view('dashboard')->with([
