@@ -1,0 +1,502 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.z-50 {
+    z-index: 9090;
+}
+.text-sm {
+    font-size: 0.75rem;
+}
+/*JETBRAIN*/
+.cat-header {
+    position: relative;
+    z-index: 6;
+    margin: 0 0 10px;
+    padding: 20px;
+    border-radius: 8px;
+    background: #fff;
+}
+.cat-header .cat-header--tags {
+    zoom: 1;
+    margin: 0 0 20px;
+    padding: 10px 0 0;
+}
+.cat-header .cat-header--tags .btn {
+    font-size: 13px;
+    float: left;
+    margin: 0 5px 5px 0;
+    padding: 0 10px;
+}
+
+.btn.btn-secondary {
+    color: #9b9b9b;
+    background-color: #fff;
+    border-color: #eee;
+}
+
+.content-left, .content-right {
+    float: right;
+    width: 845px;
+}
+.badge-single--listing img {
+    width: 48px;
+    height: 48px;
+}
+.card-prod .card-prod--price .current {
+    font-size: 1.5em;
+    font-weight: 500;
+    line-height: 1.222222;
+}
+
+.card-prod.card-prod-grid .card-prod--photos span img {
+    margin: 0 auto;
+    max-width: 215px;
+    max-height: 215px;
+}
+.card-prod.card-prod-grid .catalog-bonus {
+    position: relative;
+    display: inline-block;
+    vertical-align: text-bottom;
+    margin-left: 10px;
+}
+.card-prod .card-prod--price .catalog-bonus {
+    margin-top: 4px;
+}
+.catalog-grid.catalog-redesign .card-prod--price .catalog-bonus {
+    align-self: center;
+}
+.MoneyBonus_index__root_0 {
+    display: inline-flex;
+    color: #202020;
+}
+.MoneyBonus_index__bonusesSm_0 {
+    height: 16px;
+}
+.MoneyBonus_index__bonuses_0 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffdc7d;
+    border-radius: 29px;
+}
+.MoneyBonus_index__bonusesSm_0 .MoneyBonus_index__proc_0 {
+    width: 29px;
+    height: 14px;
+}
+.MoneyBonus_index__bonuses_0 .MoneyBonus_index__proc_0 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1px;
+    background-color: #fff;
+    border-radius: 11px;
+    font-weight: 400;
+    text-align: center;
+}
+.MoneyBonus_index__bonusesSm_0 .MoneyBonus_index__proc_0 span {
+    height: 100%;
+    font-size: 11px;
+    line-height: 15px;
+}
+.MoneyBonus_index__bonusesSm_0 .MoneyBonus_index__bonus_0 .MoneyBonus_index__bonusTitle_0 {
+    margin-left: 3px;
+    margin-right: 2px;
+    font-size: 11px;
+    line-height: 17px;
+}
+.MoneyBonus_index__bonusesSm_0 .MoneyBonus_index__bonus_0 .MoneyBonus_index__wrapperBonus_0 {
+    width: 10px;
+    height: 11px;
+    margin-right: 5px;
+}
+.MoneyBonus_index__bonuses_0 .MoneyBonus_index__bonus_0 .MoneyBonus_index__wrapperBonus_0 {
+    display: inline-block;
+    font-size: 0;
+    transform: translateY(2px);
+}
+.card-prod.card-prod-grid .card-prod--buy-holder {
+    display: flex;
+    align-items: center;
+}
+.catalog-grid.catalog-redesign .card-prod--buy-holder {
+    order: 6;
+}
+.card-prod .card-prod--params {
+    overflow: unset !important;
+}
+.badge-single--listing img {
+    width: 48px;
+    height: 48px;
+}
+/*Кнопки*/
+.c-web-buyProduct:not(.l-mobile).l-sm {
+    width: 116px;
+    height: 35px;
+    font-size: 13px;
+}
+.c-web-buyProduct:not(.l-mobile).l-sm > .l-button:not(:hover):not([disabled]) {
+    border-color: transparent;
+    background-color: #4b6ecd;
+    color: #fff;
+}
+.c-web-buyProduct:not(.l-mobile).l-sm > .l-button {
+    padding: 0 5px;
+    text-transform: uppercase;
+}
+.c-web-buyProduct > .l-button {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-size: inherit;
+    font-weight: 500;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #fff;
+    background: #4b6ecd;
+    background-color: rgb(75, 110, 205);
+    border: 1px solid #4b6ecd;
+    border-top-color: rgb(75, 110, 205);
+    border-right-color: rgb(75, 110, 205);
+    border-bottom-color: rgb(75, 110, 205);
+    border-left-color: rgb(75, 110, 205);
+    border-radius: 4px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.hide {
+    display: none !important;
+}
+
+/*Шрифты*/
+@font-face {
+    font-family: 'Graphik LCG';
+    src: url('/fonts/GraphikLCG-MediumItalic.eot');
+    src: local('Graphik LCG Medium Italic'), local('GraphikLCG-MediumItalic'),
+    url('/fonts/GraphikLCG-MediumItalic.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/GraphikLCG-MediumItalic.woff2') format('woff2'),
+    url('/fonts/GraphikLCG-MediumItalic.woff') format('woff'),
+    url('/fonts/GraphikLCG-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Graphik LCG';
+    src: url('/fonts/GraphikLCG-SuperItalic.eot');
+    src: local('Graphik LCG Super Italic'), local('GraphikLCG-SuperItalic'),
+    url('/fonts/GraphikLCG-SuperItalic.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/GraphikLCG-SuperItalic.woff2') format('woff2'),
+    url('/fonts/GraphikLCG-SuperItalic.woff') format('woff'),
+    url('/fonts/GraphikLCG-SuperItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Graphik LCG';
+    src: url('/fonts/GraphikLCG-SemiboldItalic.eot');
+    src: local('Graphik LCG Semibold Italic'), local('GraphikLCG-SemiboldItalic'),
+    url('/fonts/GraphikLCG-SemiboldItalic.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/GraphikLCG-SemiboldItalic.woff2') format('woff2'),
+    url('/fonts/GraphikLCG-SemiboldItalic.woff') format('woff'),
+    url('/fonts/GraphikLCG-SemiboldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Graphik LCG';
+    src: url('/fonts/GraphikLCG-Black.eot');
+    src: local('Graphik LCG Black'), local('GraphikLCG-Black'),
+    url('/fonts/GraphikLCG-Black.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/GraphikLCG-Black.woff2') format('woff2'),
+    url('/fonts/GraphikLCG-Black.woff') format('woff'),
+    url('/fonts/GraphikLCG-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Graphik LCG';
+    src: url('/fonts/GraphikLCG-Super.eot');
+    src: local('Graphik LCG Super'), local('GraphikLCG-Super'),
+    url('/fonts/GraphikLCG-Super.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/GraphikLCG-Super.woff2') format('woff2'),
+    url('/fonts/GraphikLCG-Super.woff') format('woff'),
+    url('/fonts/GraphikLCG-Super.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Graphik LCG';
+    src: url('/fonts/GraphikLCG-Thin.eot');
+    src: local('Graphik LCG Thin'), local('GraphikLCG-Thin'),
+    url('/fonts/GraphikLCG-Thin.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/GraphikLCG-Thin.woff2') format('woff2'),
+    url('/fonts/GraphikLCG-Thin.woff') format('woff'),
+    url('/fonts/GraphikLCG-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Graphik LCG';
+    src: url('/fonts/GraphikLCG-ExtralightItalic.eot');
+    src: local('Graphik LCG Extralight Italic'), local('GraphikLCG-ExtralightItalic'),
+    url('/fonts/GraphikLCG-ExtralightItalic.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/GraphikLCG-ExtralightItalic.woff2') format('woff2'),
+    url('/fonts/GraphikLCG-ExtralightItalic.woff') format('woff'),
+    url('/fonts/GraphikLCG-ExtralightItalic.ttf') format('truetype');
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Graphik LCG';
+    src: url('/fonts/GraphikLCG-Regular.eot');
+    src: local('Graphik LCG Regular'), local('GraphikLCG-Regular'),
+    url('/fonts/GraphikLCG-Regular.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/GraphikLCG-Regular.woff2') format('woff2'),
+    url('/fonts/GraphikLCG-Regular.woff') format('woff'),
+    url('/fonts/GraphikLCG-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Graphik LCG';
+    src: url('/fonts/GraphikLCG-BoldItalic.eot');
+    src: local('Graphik LCG Bold Italic'), local('GraphikLCG-BoldItalic'),
+    url('/fonts/GraphikLCG-BoldItalic.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/GraphikLCG-BoldItalic.woff2') format('woff2'),
+    url('/fonts/GraphikLCG-BoldItalic.woff') format('woff'),
+    url('/fonts/GraphikLCG-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Graphik LCG';
+    src: url('/fonts/GraphikLCG-LightItalic.eot');
+    src: local('Graphik LCG Light Italic'), local('GraphikLCG-LightItalic'),
+    url('/fonts/GraphikLCG-LightItalic.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/GraphikLCG-LightItalic.woff2') format('woff2'),
+    url('/fonts/GraphikLCG-LightItalic.woff') format('woff'),
+    url('/fonts/GraphikLCG-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Graphik LCG';
+    src: url('/fonts/GraphikLCG-BlackItalic.eot');
+    src: local('Graphik LCG Black Italic'), local('GraphikLCG-BlackItalic'),
+    url('/fonts/GraphikLCG-BlackItalic.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/GraphikLCG-BlackItalic.woff2') format('woff2'),
+    url('/fonts/GraphikLCG-BlackItalic.woff') format('woff'),
+    url('/fonts/GraphikLCG-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Graphik LCG';
+    src: url('/fonts/GraphikLCG-Medium.eot');
+    src: local('Graphik LCG Medium'), local('GraphikLCG-Medium'),
+    url('/fonts/GraphikLCG-Medium.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/GraphikLCG-Medium.woff2') format('woff2'),
+    url('/fonts/GraphikLCG-Medium.woff') format('woff'),
+    url('/fonts/GraphikLCG-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Graphik LCG';
+    src: url('/fonts/GraphikLCG-Light.eot');
+    src: local('Graphik LCG Light'), local('GraphikLCG-Light'),
+    url('/fonts/GraphikLCG-Light.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/GraphikLCG-Light.woff2') format('woff2'),
+    url('/fonts/GraphikLCG-Light.woff') format('woff'),
+    url('/fonts/GraphikLCG-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Graphik LCG';
+    src: url('/fonts/GraphikLCG-Semibold.eot');
+    src: local('Graphik LCG Semibold'), local('GraphikLCG-Semibold'),
+    url('/fonts/GraphikLCG-Semibold.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/GraphikLCG-Semibold.woff2') format('woff2'),
+    url('/fonts/GraphikLCG-Semibold.woff') format('woff'),
+    url('/fonts/GraphikLCG-Semibold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Graphik LCG';
+    src: url('/fonts/GraphikLCG-Bold.eot');
+    src: local('Graphik LCG Bold'), local('GraphikLCG-Bold'),
+    url('/fonts/GraphikLCG-Bold.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/GraphikLCG-Bold.woff2') format('woff2'),
+    url('/fonts/GraphikLCG-Bold.woff') format('woff'),
+    url('/fonts/GraphikLCG-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Graphik LCG';
+    src: url('/fonts/GraphikLCG-Extralight.eot');
+    src: local('Graphik LCG Extralight'), local('GraphikLCG-Extralight'),
+    url('/fonts/GraphikLCG-Extralight.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/GraphikLCG-Extralight.woff2') format('woff2'),
+    url('/fonts/GraphikLCG-Extralight.woff') format('woff'),
+    url('/fonts/GraphikLCG-Extralight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Graphik LCG';
+    src: url('/fonts/GraphikLCG-ThinItalic.eot');
+    src: local('Graphik LCG Thin Italic'), local('GraphikLCG-ThinItalic'),
+    url('/fonts/GraphikLCG-ThinItalic.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/GraphikLCG-ThinItalic.woff2') format('woff2'),
+    url('/fonts/GraphikLCG-ThinItalic.woff') format('woff'),
+    url('/fonts/GraphikLCG-ThinItalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Graphik LCG';
+    src: url('/fonts/GraphikLCG-RegularItalic.eot');
+    src: local('Graphik LCG Regular Italic'), local('GraphikLCG-RegularItalic'),
+    url('/fonts/GraphikLCG-RegularItalic.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/GraphikLCG-RegularItalic.woff2') format('woff2'),
+    url('/fonts/GraphikLCG-RegularItalic.woff') format('woff'),
+    url('/fonts/GraphikLCG-RegularItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+/* фильтр */
+.side-left {
+    float: left;
+    width: 275px;
+}
+.filter {
+    position: relative;
+    margin: 0 0 10px;
+    border-radius: 8px;
+    background: #fff;
+}
+.filter--header {
+    padding: 18px 0 20px;
+    border-bottom: 1px solid #eee;
+}
+.filter--inner {
+    padding: 0 20px;
+}
+.filter--total {
+    font-size: 1.25em;
+    font-weight: 500;
+    text-align: center;
+    color: #565656;
+}
+.filter--total + .btn {
+    margin-top: 10px;
+}
+.filter--group {
+    padding: 17px 0;
+    border-bottom: 1px solid #eee;
+}
+.filter--group--header {
+    font-size: 1.5em;
+    font-weight: 500;
+    line-height: 20px;
+    position: relative;
+    padding: 0 40px 0 18px;
+    cursor: pointer;
+    border-left: 2px solid #9b9b9b;
+}
+.filter--group.no-accord .filter--group--content, .filter--group.opened .filter--group--content {
+    display: block;
+}
+.filter--group--content {
+    display: none;
+    padding-top: 17px;
+}
+.checkbox, .radio {
+    position: relative;
+    margin: 0 0 10px;
+    margin-top: 0px;
+    margin-top: 0 !important;
+}
+
+
+/* Слайдеры */
+.range-slider .range-slider--fields {
+    margin: 0 -5px;
+    zoom: 1;
+}
+.range-slider .range-slider--col {
+    float: left;
+    width: 50%;
+    padding: 0 5px;
+}
+.range-slider .range-slider--field {
+    position: relative;
+    overflow: hidden;
+    height: 35px;
+    padding: 0 10px 0 30px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 2px;
+}
+.range-slider .range-slider--field .lbl {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 24px;
+    color: #9b9b9b;
+    font-size: 1.083333em;
+    line-height: 32px;
+    text-align: right;
+}
+.range-slider .range-slider--field input[type="text"] {
+    width: 100%;
+    padding: 8px 0;
+    color: #202020;
+    border: none;
+    font-size: 1.083333em;
+    line-height: normal;
+}
+
+.range-slider .range-slider--fields::after {
+    clear: both;
+}
+.range-slider .range-slider--fields::after, .range-slider .range-slider--fields::before {
+    content: " ";
+    display: table;
+}
+*:focus{
+    outline: none !important;
+    --tw-ring-color: transparent !important;
+}

@@ -1,0 +1,5 @@
+RewriteEngine on
+RewriteCond %{REQUEST_URI} !^public
+RewriteRule ^(.*)$ public/$1 [L]
+#ProxyPass "/baza"  "https://bazadromm.ru/baza-dannyh-dlya-podbora-akkumulyatorov-po-marke-avto/demo-bazy-podbora-akb.html"
+#ProxyPassReverse /baza  https://bazadromm.ru/baza-dannyh-dlya-podbora-akkumulyatorov-po-marke-avto/demo-bazy-podbora-akb.html
