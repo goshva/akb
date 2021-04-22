@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="uk-container">
-        <div class="QueryTitle__text" id="news">Акции и Новости</div>
+        <div class="QueryTitle__text" id="news">Акции</div>
 
 
         <img src="/img/sliders/3.jpg" alt="" class="mb-2">

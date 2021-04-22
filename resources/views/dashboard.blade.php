@@ -680,7 +680,13 @@ $.ajaxSetup({
                             console.log($(this))
                         })
                     </script>
+                                <div class="SectionTitle">
+                <h1 class="SectionTitle__text">Схема проезда</h1>
+            </div>
+                <img src="img/map.jpg" alt="Схема проезда">
+
                 </div>
+
             </div>
 
         </div>
@@ -689,22 +695,13 @@ $.ajaxSetup({
     <!-- /#section4 -->
 
     <div id="section5" class="footerContainer" style="display:none"><!-- TODO: remove if not used-->
-
         <div class="uk-container">
-
             <div class="SectionTitle">
-                <h1 class="SectionTitle__text">Подборки</h1>
+                <h1 class="SectionTitle__text">Схема проезда</h1>
             </div>
-
             <div class="SectionBody">
-                @foreach($categories as $category)
-                    <a href="{{ route('category', $category->name) }}" class="MiniBtn uk-button uk-button-default">{{ $category->name }}</a>
-                @endforeach
-
             </div>
-
         </div>
-
     </div>
     <!-- /#section5 -->
 

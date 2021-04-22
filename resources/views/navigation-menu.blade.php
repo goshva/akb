@@ -46,11 +46,13 @@
     </x-jet-nav-link>
     <div uk-dropdown="mode: click">
         <ul class="uk-nav uk-dropdown-nav">
-            <li><a href="{{ route('info.promotions') }}#news">Акции и Новости</a></li>
-            <li><a href="{{ route('info.guarantees') }}">Гарантия и сервис</a></li>
+            <li><a href="{{ route('info.promotions') }}">Акции</a></li>
+            <li><a href="{{ route('info.news') }}">Новости</a></li>
+
+            <li><a href="{{ route('info.capacity') }}">Ёмкость аккумулятора</a></li>
             <li><a href="{{ route('info.reviews') }}">Отзывы</a></li>
             <li><a href="{{ route('info.policy') }}">Политика конфиденциальности</a></li>
-            <li><a href="{{ route('info.faq') }}">Вопросы и ответы</a></li>
+            <li><a href="{{ route('info.replacement') }}">Подменный аккумулятор</a></li>
         </ul>
     </div>
 </li>

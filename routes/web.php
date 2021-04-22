@@ -46,9 +46,9 @@ Route::prefix('/info')->group(function (){
     Route::get('/promotions', function (){
         return view('info.promotions');
     })->name('info.promotions');
-    Route::get('/guarantees', function (){
-        return view('info.guarantees');
-    })->name('info.guarantees');
+    Route::get('/capacity', function (){
+        return view('info.capacity');
+    })->name('info.capacity');
     Route::get('/check_date', function (){
         return view('info.check_date');
     })->name('info.check_date');
@@ -61,9 +61,9 @@ Route::prefix('/info')->group(function (){
     Route::get('/policy', function (){
         return view('info.policy');
     })->name('info.policy');
-    Route::get('/faq', function (){
-        return view('info.faq');
-    })->name('info.faq');
+    Route::get('/replacement', function (){
+        return view('info.replacement');
+    })->name('info.replacement');
 });
 
 Route::get('/recommendation', function (){
@@ -73,7 +73,7 @@ Route::get('/recommendation', function (){
 
 Route::get('/', [\App\Http\Controllers\ProductController::class, 'dashboard'])->name('dashboard');
 
-Route::post('/baza', [\App\Http\Controllers\BazaController::class, 'getinfo'])->name('order.create');
+//TODO: deprecated Route::post('/baza', [\App\Http\Controllers\BazaController::class, 'getinfo'])->name('order.create');
 
 Route::post('/order/create', [\App\Http\Controllers\OrderController::class, 'create'])->name('order.create');
 
