@@ -132,6 +132,7 @@ class ProductController extends Controller
             ]);
         } else {
             if(isset($requests['mark_id']) && isset($requests['model_id']) && isset($requests['generation_id']) && isset($requests['engine_id'])){
+                //$selected = dd($requests);
 
                 $articles = \App\Models\Article::where('mark_id', $requests['mark_id'])->where('engine_id', $requests['engine_id'])->get()->first();
                if ($articles){
@@ -209,9 +210,7 @@ class ProductController extends Controller
     public function show(Product $product, Request $request)
     {
         $search_value = $request->search_value;
-        
         $find = $product::where('name', 'like', "%".$search_value."%")->get();
-        
         if ($find->isEmpty()){
             $marks = Mark::all();
             //$find = $marks->::where('name', 'like', "%".$search_value."%")->get();
@@ -275,8 +274,26 @@ class ProductController extends Controller
 
 
     public function search($key, Product $product){
-            $products = $product->where('name', 'like', "%".$key."%")->get();
-//            $products = collect([]);
-            return response($products);
+            $find = $product->where('name', 'like', "%".$key."%")->get();
+//
+            //$find = $product::where('name', 'like', "%".$key."%")->get();
+if ($find->isEmpty()){
+    $marks = Mark::all();
+    $find = Mark::where('name', 'like', "%".strtoupper($key)."%")->pluck('id'); //all([]);
+    $articles =  \App\Models\Article::where('mark_id',$find)->pluck('list');
+
+    $arrArticles = array();
+    foreach ($articles as &$value) {
+        $arr = explode(",",$value);
+        foreach ($arr as &$art) {
+            array_push($arrArticles,$art);
+        }
+    }
+    //dd(array_unique($arrArticles));
+    $find = $product::whereIn('article', $arrArticles)->get();
+
+}
+            //            $products = collect([]);
+            return response($find);
     }
 }

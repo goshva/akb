@@ -44,6 +44,7 @@
        }
 
     if (isset($requests['mark_id']) && $requests['mark_id'] && isset($requests['model_id']) && $requests['mark_id']){
+
         $mark_id = $requests['mark_id'];
         $model_id = $requests['model_id'];
         $articles = \App\Models\Article::where('mark_id', $mark_id)->where('model_id', $model_id)->get()->first();
@@ -54,6 +55,7 @@
             $items = explode(',', $list);
             $products = \App\Models\Product::whereIn('article', $items)->get();
             $products = \App\Models\Product::paginate($products);
+            
         }
     }
          */

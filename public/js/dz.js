@@ -53,7 +53,7 @@ if ($(document).width() < 500) {
    * урюк те в род
    * Бамбук те в печень
  */
-/*$(".searchBar__input").on('change keyup', function (e){
+$(".searchBar__input").on('change keyup', function (e){
     e.preventDefault()
     let key = $(this).val()
     if(key.length > 0){
@@ -115,7 +115,7 @@ if ($(document).width() < 500) {
         })
     }
 })
-*/
+
 
 // $('.delivery').on('change keyup focus', function (){
 //     console.log($(this).val())
