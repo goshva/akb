@@ -309,15 +309,14 @@
                                         @endforeach
                                     </select>
                                 </div>
+
                                 <div class="uk-width-1-4@l">
                                     <label for="model">Выберите модель</label> <br>
                                     <select name="model_id" id="model" class="models" required>
                                         <option value="">Модель</option>
-                                        @foreach(\App\Models\Madel::all() as $mark)
-                                            @if(strlen($mark->name) > 0)
-                                                <option value="{{ $mark->id }}">{{ $mark->name }}</option>
-                                            @endif
-                                        @endforeach
+
+                                                <option value="{{ $requests['model_id'] }}">{{ $requests['model_name']}}</option>
+
 
                                     </select>
                                 </div>
@@ -326,11 +325,8 @@
                                     <select name="generation_id" class="generations" required>
                                         <option value="Поколение" selected>Поколение</option>
 
-                                        @foreach(\App\Models\Generation::all() as $mark)
-                                            @if(strlen($mark->name) > 0)
-                                                <option value="{{ $mark->id }}">{{ $mark->name }}</option>
-                                            @endif
-                                        @endforeach
+                                                <option value="{{ $requests['generation_id'] }}">{{ $requests['generation_name'] }}</option>
+
 
                                     </select>
                                 </div>
@@ -339,11 +335,8 @@
                                     <select name="engine_id" class="engines" required>
                                         <option value="двигатель" selected>Двигатель</option>
 
-                                        @foreach(\App\Models\Engine::all() as $mark)
-                                            @if(strlen($mark->name) > 0)
-                                                <option value="{{ $mark->id }}">{{ $mark->name }}</option>
-                                            @endif
-                                        @endforeach
+
+                                                <option value="{{ $requests['engine_id'] }}">{{ $requests['engine_name'] }}</option>
                                     </select>
                                 </div>
                                 <div class="uk-width-4-4@l  uk-align-center">
