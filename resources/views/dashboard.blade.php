@@ -279,7 +279,7 @@
                         <div class="Buttons">
 
                         </div>
-                        <div class="tagsHeader__head">
+                        <div class="tagsHeader__head" style="display:none"><!-- TODO: remove if not used-->
                             @foreach($categories as $category)
                             <a href="{{ route('category', $category->name) }}" class="MiniBtn uk-button uk-button-default">{{ $category->name }}</a>
                             @endforeach
@@ -688,7 +688,7 @@ $.ajaxSetup({
     </div>
     <!-- /#section4 -->
 
-    <div id="section5" class="footerContainer">
+    <div id="section5" class="footerContainer" style="display:none"><!-- TODO: remove if not used-->
 
         <div class="uk-container">
 
