@@ -20,8 +20,8 @@
 
                 <div class="card-header">
                     <h4 class="card-title">Продукт</h4>
-                    Марка: {{ $product->marks->name }}
-                    Модель: {{ $product->models->name }}
+{{--                    Марка: {{ $product->marks->name }}--}}
+{{--                    Модель: {{ $product->models->name }}--}}
                 </div>
 
                 <div class="card-body">

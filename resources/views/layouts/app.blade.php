@@ -10,7 +10,6 @@
 
     @yield('header')
 
-    <link rel="stylesheet" href="/css/dz.min.css">
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/img/Favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/img/Favicon/favicon-32x32.png">
@@ -21,6 +20,7 @@
     <meta name="theme-color" content="#ffffff">
     <!-- Uikit CSS -->
     <link rel="stylesheet" href="/css/uikit.min.css">
+    <link rel="stylesheet" href="/css/dz.min.css">
     <!-- JQuery UI Slider -->
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"/>
