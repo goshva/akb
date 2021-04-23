@@ -302,7 +302,7 @@ class ProductController extends Controller
             $articles =  \App\Models\Article::where('model_id',$find)->pluck('list');            
         }
         else {
-            $madel = $search_arr[1];    
+            $madel = $search_arr[0];    
             $find = Madel::where('name', $madel)->pluck('id'); 
             $articles =  \App\Models\Article::where('model_id',$find)->pluck('list'); 
 
