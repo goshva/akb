@@ -31,7 +31,7 @@
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!— Yandex.Metrika counter —>
-    <script type="text/javascript" >
+   <!-- <script type="text/javascript" >
         (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
             m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
         (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
@@ -43,7 +43,7 @@
             webvisor:true
         });
     </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/73770181" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <noscript><div><img src="https://mc.yandex.ru/watch/73770181" style="position:absolute; left:-9999px;" alt="" /></div></noscript> -->
     <!— /Yandex.Metrika counter —>
 
 </head>
@@ -349,13 +349,12 @@
 
                 <div class="uk-navbar-right uk-hidden@m mymargin">
                     <div>
-                            <form action="{{ route('search') }}" method="GET">
+                          <!--  <form action="{{ route('search') }}" method="GET"> -->
                         @csrf
                         	<div class="uk-inline">
                             <button class="uk-form-icon uk-form-icon-flip searchBar__btn mb-searchBar" type="submit"><i
                                     class="icon-search searchBar__btnIcon"></i></button>
-                            <input class="uk-input searchBar__input mb-vers" type="text" name="search_value"
-                                   placeholder="Поиск">
+                            <input class="uk-input searchBar__input mb-vers" type="text" name="search_value" placeholder="Поиск"  style="text-transform:uppercase">
                             <div class="searchBar__drop mb-search"
                                  uk-drop="mode: click; pos: bottom-justify; boundary: #section2 > .searchBar; boundary-align: true">
                                 <div id="search_result1">
@@ -365,7 +364,7 @@
 							<a href="javascript:;" class="navbar__mobileLink" data-fancybox="" data-src="#cart-wrapper"><i
                                 class="icon-cart"></i></a>
                         </div>
-                        </form>
+                        <!--</form> -->
 
                     </div>
                 </div>
@@ -497,7 +496,7 @@
                         <div class="uk-inline">
                             <button class="uk-form-icon uk-form-icon-flip searchBar__btn" type="submit"><i
                                     class="icon-search searchBar__btnIcon"></i></button>
-                            <input class="uk-input searchBar__input" type="text" name="search_value"
+                            <input class="uk-input searchBar__input" type="text" name="search_value" style="text-transform:uppercase"
                                    placeholder="Для более быстрого поиска напишите сюда, что хотите найти">
                             <div class="searchBar__drop"
                                  uk-drop="mode: click; pos: bottom-justify; boundary: #section2 > .searchBar; boundary-align: true">
@@ -576,7 +575,7 @@
                 <div class="footerLastCompany">
                     © 2016-{{ date('Y') }}  «{{ env('APP_NAME') }}»
                 </div>
-                <iframe src="https://yandex.ru/sprav/widget/rating-badge/234101801638" width="150" height="50" frameborder="0"></iframe>
+              <!--  <iframe src="https://yandex.ru/sprav/widget/rating-badge/234101801638" width="150" height="50" frameborder="0"></iframe> -->
                 <a href="https://итрр.рф/" title="Разработчик сайта" target="_blank" >
                     <span style="display: flex; align-items: center;" class="nonmobile"><img src="https://итрр.рф/favicon.ico" alt="" width="20">Инновационные Технологические Решения Развития РФ</span>
                     <img src="https://итрр.рф/assets/img/logo.svg" alt="" class="mobile" width="120">

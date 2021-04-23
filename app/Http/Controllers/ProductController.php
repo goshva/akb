@@ -4,11 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Mark;
+use App\Models\Madel;
 use App\Models\Generation;
 use App\Models\Engine;
-
-use App\Models\Madel;
-
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -229,7 +227,8 @@ class ProductController extends Controller
      */
     public function show(Product $product, Request $request)
     {
-        $search_value = $request->search_value;
+        $search_arr = explode(" ",$request->search_value)[0];
+        $search_value = $search_arr[0];
         $find = $product::where('name', 'like', "%".$search_value."%")->get();
         if ($find->isEmpty()){
             $marks = Mark::all();
@@ -293,14 +292,29 @@ class ProductController extends Controller
     }
 
 
-    public function search($key, Product $product){
-            $find = $product->where('name', 'like', "%".$key."%")->get();
+    public function search($keyparam, Product $product){
+        $search_arr = explode(" ",$keyparam);
+        $keyparam = $search_arr[0];
+//var_dump($key);
+            $find = $product->where('name', 'like', "%".$keyparam."%")->get();
+            
 //
-            //$find = $product::where('name', 'like', "%".$key."%")->get();
+            //$find = $product::where('name', 'like', "%".$keyparam."%")->get();
 if ($find->isEmpty()){
     $marks = Mark::all();
-    $find = Mark::where('name', 'like', "%".strtoupper($key)."%")->pluck('id'); //all([]);
+    if (empty($search_arr[1])){
+        var_dump($search_arr);
+    $find = Mark::where('name', strtoupper($keyparam))->pluck('id'); //all([]);
+
     $articles =  \App\Models\Article::where('mark_id',$find)->pluck('list');
+
+    }
+     else {
+    $madel = $search_arr[1];    
+    $find = Madel::where('name', $madel)->pluck('id'); //all([]);
+    $articles =  \App\Models\Article::where('model_id',$find)->pluck('list');
+
+    }
 
     $arrArticles = array();
     foreach ($articles as &$value) {
@@ -310,7 +324,7 @@ if ($find->isEmpty()){
         }
     }
     //dd(array_unique($arrArticles));
-    $find = $product::whereIn('article', $arrArticles)->get();
+    $find = $product::whereIn('article', array_unique($arrArticles))->get();
 
 }
             //            $products = collect([]);

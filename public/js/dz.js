@@ -53,7 +53,17 @@ if ($(document).width() < 500) {
    * урюк те в род
    * Бамбук те в печень
  */
-$(".searchBar__input").on('change keyup', function (e){
+function delay(fn, ms) {
+  let timer = 0
+  return function(...args) {
+    clearTimeout(timer)
+    timer = setTimeout(fn.bind(this, ...args), ms || 0)
+  }
+}
+$('#input').keyup(delay(function (e) {
+  console.log('Time elapsed!', this.value);
+}, 500));
+$(".searchBar__input").on('change keyup', delay(function (e){
     e.preventDefault()
     let key = $(this).val()
     if(key.length > 2){
@@ -114,7 +124,7 @@ $(".searchBar__input").on('change keyup', function (e){
             }
         })
     }
-})
+},500))
 
 
 // $('.delivery').on('change keyup focus', function (){
