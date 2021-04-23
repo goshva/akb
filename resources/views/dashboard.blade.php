@@ -314,7 +314,7 @@
                                     <label for="model">Выберите модель</label> <br>
                                     <select name="model_id" id="model" class="models" required style="width:100%">
                                         <option value="">Модель</option>
-                                        @if (isset($requests['model_id']))
+                                        @if (isset($requests['model_name']))
                                                 <option value="{{ $requests['model_id'] }}">{{ $requests['model_name']}}</option>
                                         @endif
 
@@ -325,7 +325,7 @@
                                     <label>Выберите поколение</label> <br>
                                     <select name="generation_id" class="generations" required style="width:100%">
                                         <option value="Поколение" selected>Поколение</option>
-                                        @if (isset($requests['generation_id']))
+                                        @if (isset($requests['generation_name']))
                                                 <option value="{{ $requests['generation_id'] }}">{{ $requests['generation_name'] }}</option>
                                         @endif
 
@@ -336,7 +336,7 @@
                                     <label >Выберите двигатель</label> <br>
                                     <select name="engine_id" class="engines" required style="width:100%">
                                         <option value="двигатель" selected>Двигатель</option>
-                                        @if (isset($requests['generation_id']))
+                                        @if (isset($requests['engine_name']))
                                                 <option value="{{ $requests['engine_id'] }}">{{ $requests['engine_name'] }}</option>
                                         @endif
                                     </select>
