@@ -60,13 +60,11 @@ function delay(fn, ms) {
     timer = setTimeout(fn.bind(this, ...args), ms || 0)
   }
 }
-$('#input').keyup(delay(function (e) {
-  console.log('Time elapsed!', this.value);
-}, 500));
+
 $(".searchBar__input").on('change keyup', delay(function (e){
     e.preventDefault()
     let key = $(this).val()
-    if(key.length > 2){
+    if(key.length > 1){
         $.ajax({
             url: "/search/"+key,
             method: "GET",

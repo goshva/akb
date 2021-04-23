@@ -288,44 +288,41 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
     }
-
 
     public function search($keyparam, Product $product){
         $search_arr = explode(" ",$keyparam);
         $keyparam = $search_arr[0];
-//var_dump($key);
-            $find = $product->where('name', 'like', "%".$keyparam."%")->get();
+    //        $find = $product->where('name', 'like', "%".$keyparam."%")->get();
             
-//
-            //$find = $product::where('name', 'like', "%".$keyparam."%")->get();
-if ($find->isEmpty()){
-    $marks = Mark::all();
-    if (empty($search_arr[1])){
-    $find = Mark::where('name', strtoupper($keyparam))->pluck('id'); //all([]);
-
-    $articles =  \App\Models\Article::where('mark_id',$find)->pluck('list');
-
-    }
-     else {
-    $madel = $search_arr[1];    
-    $find = Madel::where('name', $madel)->pluck('id'); //all([]);
-    $articles =  \App\Models\Article::where('model_id',$find)->pluck('list');
-
-    }
-
-    $arrArticles = array();
-    foreach ($articles as &$value) {
-        $arr = explode(",",$value);
-        foreach ($arr as &$art) {
-            array_push($arrArticles,$art);
+    //if ($find->isEmpty()){
+        if (empty($search_arr[1])){
+            $madel = $search_arr[0];    
+            $find = Madel::where('name', $madel)->pluck('id'); 
+            $articles =  \App\Models\Article::where('model_id',$find)->pluck('list');            
         }
-    }
-    //dd(array_unique($arrArticles));
-    $find = $product::whereIn('article', array_unique($arrArticles))->get();
+        else {
+            $madel = $search_arr[1];    
+            $find = Madel::where('name', $madel)->pluck('id'); 
+            $articles =  \App\Models\Article::where('model_id',$find)->pluck('list'); 
 
-}
+            //$marks = Mark::all();
+            //$find = Mark::where('name', $search_arr[0])->pluck('id'); 
+            ////var_dump($find);
+            //$articles =  \App\Models\Article::where('mark_id',$find)->pluck('list');
+        }
+
+        $arrArticles = array();
+        foreach ($articles as &$value) {
+            $arr = explode(",",$value);
+            foreach ($arr as &$art) {
+                array_push($arrArticles,$art);
+            }
+        }
+        //dd(array_unique($arrArticles));
+        $find = $product::whereIn('article', array_unique($arrArticles))->get();
+
+    //}
             //            $products = collect([]);
             return response($find);
     }
