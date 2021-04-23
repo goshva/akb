@@ -33335,6 +33335,14 @@ select {
   --tw-ring-color: transparent !important;
 }
 
+.uk-notification-message {
+  position: relative;
+  padding: 15px;
+  background:#2A50B6;
+  color:#fff;
+  box-shadow: 1px 1px 1px #ccc;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
@@ -192799,4 +192807,3 @@ select {
             animation: bounce 1s infinite;
   }
 }
-

@@ -352,8 +352,7 @@
                           <!--  <form action="{{ route('search') }}" method="GET"> -->
                         @csrf
                         	<div class="uk-inline">
-                            <button class="uk-form-icon uk-form-icon-flip searchBar__btn mb-searchBar" type="submit"><i
-                                    class="icon-search searchBar__btnIcon"></i></button>
+                            <button class="uk-form-icon uk-form-icon-flip searchBar__btn mb-searchBar" type="submit" style="display:none">⌛</button>
                             <input class="uk-input searchBar__input mb-vers" type="text" name="search_value" placeholder="Поиск"  style="text-transform:uppercase">
                             <div class="searchBar__drop mb-search"
                                  uk-drop="mode: click; pos: bottom-justify; boundary: #section2 > .searchBar; boundary-align: true">
@@ -494,8 +493,7 @@
                     <form action="{{ route('search') }}" method="GET">
                         @csrf
                         <div class="uk-inline">
-                            <button class="uk-form-icon uk-form-icon-flip searchBar__btn" type="submit"><i
-                                    class="icon-search searchBar__btnIcon"></i></button>
+                            <button class="uk-form-icon uk-form-icon-flip searchBar__btn" type="submit" style="display:none">⌛</button>
                             <input class="uk-input searchBar__input" type="text" name="search_value" style="text-transform:uppercase"
                                    placeholder="Для более быстрого поиска напишите сюда, что хотите найти">
                             <div class="searchBar__drop"
@@ -616,7 +614,7 @@
 <script src="/js/uikit.min.js"></script>
 <script src="/js/uikit-icons.min.js"></script>
 <!-- My JavaScript -->
-<script src="/js/dz2.js"></script>
+<script src="/js/dz3.js"></script>
 <script src="/js/AsideBlock__checkboxInput.js"></script>
 <script src="/js/Catalog.js"></script>
 @yield('scripts')

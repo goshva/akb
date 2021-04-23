@@ -60,16 +60,20 @@ function delay(fn, ms) {
     timer = setTimeout(fn.bind(this, ...args), ms || 0)
   }
 }
-
+/*
 $(".searchBar__input").on('change keyup', delay(function (e){
     e.preventDefault()
     let key = $(this).val()
     if(key.length > 1){
+      $(".searchBar__input").prop( "disabled", true );
+      $(".searchBar__btn").show();
         $.ajax({
             url: "/search/"+key,
             method: "GET",
             success: function (response){
                 console.log(response)
+                $(".searchBar__input").prop( "disabled", false );
+                $(".searchBar__btn").hide();
                 if (response.length <= 0){
                     $("#search_result").html('Ничего не найдено')
 

@@ -500,3 +500,33 @@
     outline: none !important;
     --tw-ring-color: transparent !important;
 }
+.uk-notification-message {
+    position: relative;
+    padding: 15px;
+    background:#2A50B6;
+    color:#fff;
+    box-shadow: 1px 1px 1px #ccc;
+}
+#loader{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+    font-size:125px;
+    width:1em;
+    height:1em;
+    line-height:1.2;
+    overflow:hidden;
+  }
+  #clock{
+    animation:clock 1.2s steps(12, end) infinite;
+    display: inline-block;
+  }
+  @keyframes clock{
+    0%{
+      transform:translateY(0);
+    }
+    100%{
+      transform:translateY(-14.4em);
+    }
+  }
