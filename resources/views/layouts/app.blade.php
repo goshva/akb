@@ -616,7 +616,7 @@
 <script src="/js/uikit.min.js"></script>
 <script src="/js/uikit-icons.min.js"></script>
 <!-- My JavaScript -->
-<script src="/js/dz.js"></script>
+<script src="/js/dz2.js"></script>
 <script src="/js/AsideBlock__checkboxInput.js"></script>
 <script src="/js/Catalog.js"></script>
 @yield('scripts')
