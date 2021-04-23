@@ -64,12 +64,12 @@ function delay(fn, ms) {
 $(".searchBar__input").on('change keyup', delay(function (e){
     e.preventDefault()
     let key = $(this).val()
-    if(key.length > 2){
+    if(key.length > 1){
         $.ajax({
             url: "/search/"+key,
             method: "GET",
             success: function (response){
-                //console.log(response)
+                console.log(response)
                 if (response.length <= 0){
                     $("#search_result").html('Ничего не найдено')
 
