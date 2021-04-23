@@ -303,7 +303,6 @@ class ProductController extends Controller
 if ($find->isEmpty()){
     $marks = Mark::all();
     if (empty($search_arr[1])){
-        var_dump($search_arr);
     $find = Mark::where('name', strtoupper($keyparam))->pluck('id'); //all([]);
 
     $articles =  \App\Models\Article::where('mark_id',$find)->pluck('list');
