@@ -164,7 +164,8 @@ class ProductController extends Controller
                $requests['mark_name']=$mark_name[0];
                $requests['model_name']=$model_name[0];
                $requests['generation_name']=$generation_name[0];
-               $requests['engine_name']=$engine_name[0];                 
+               $requests['engine_name']=$engine_name[0];
+               //var_dump($requests);
             } else {
                 $items = $productss->sortBy([
                     ['amperes', 'asc']

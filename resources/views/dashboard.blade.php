@@ -59,6 +59,7 @@
         }
     }
          */
+       // dd($requests);                 
 
     @endphp
 {{--    @section('header')--}}
@@ -301,8 +302,8 @@
                                 <div class="uk-width-1-4@l">
                                     <label for="marka">Выберите марку</label> <br>
                                     <select name="mark_id" id="marka" class="marks" required>
-                                        <option value=""  selected>Марка</option>
-                                        @foreach(\App\Models\Mark::all() as $mark)
+                                    <option value="" selected disabled hidden>Выбрать</option>
+                                       @foreach(\App\Models\Mark::all() as $mark)
                                             @if(strlen($mark->name) > 0)
                                                 <option value="{{ $mark->id }}">{{ $mark->name }}</option>
                                             @endif
@@ -313,7 +314,7 @@
                                 <div class="uk-width-1-4@l">
                                     <label for="model">Выберите модель</label> <br>
                                     <select name="model_id" id="model" class="models" required style="width:100%">
-                                        <option value="">Модель</option>
+                                    <option value="" selected disabled hidden>Выбрать</option>
                                         @if (isset($requests['model_name']))
                                                 <option value="{{ $requests['model_id'] }}">{{ $requests['model_name']}}</option>
                                         @endif
@@ -324,7 +325,7 @@
                                 <div class="uk-width-1-4@l">
                                     <label>Выберите поколение</label> <br>
                                     <select name="generation_id" class="generations" required style="width:100%">
-                                        <option value="Поколение" selected>Поколение</option>
+                                    <option value="" selected disabled hidden>Выбрать</option>
                                         @if (isset($requests['generation_name']))
                                                 <option value="{{ $requests['generation_id'] }}">{{ $requests['generation_name'] }}</option>
                                         @endif
@@ -335,7 +336,7 @@
                                 <div class="uk-width-1-4@l">
                                     <label >Выберите двигатель</label> <br>
                                     <select name="engine_id" class="engines" required style="width:100%">
-                                        <option value="двигатель" selected>Двигатель</option>
+                                    <option value="" selected disabled hidden>Выбрать</option>
                                         @if (isset($requests['engine_name']))
                                                 <option value="{{ $requests['engine_id'] }}">{{ $requests['engine_name'] }}</option>
                                         @endif
@@ -593,6 +594,11 @@
                     success: function (response) {
                         console.log(response)
                         let models = [];
+                        //
+                        models.push(`
+                        <option value="" selected="" disabled="" hidden="">Выбрать</option>
+                                `)
+                        //
                         for(i=0; i < response.length; i++){
                             models.push(`
                                 <option value="${response[i].id}">${response[i].name}</option>
@@ -610,6 +616,11 @@
                     success: function (response) {
                         console.log(response)
                         let models = [];
+                        //
+                        models.push(`
+                        <option value="" selected="" disabled="" hidden="">Выбрать</option>
+                                `)
+                        //                     
                         for(i=0; i < response.length; i++){
                             models.push(`
                                 <option value="${response[i].id}">${response[i].name}</option>
@@ -627,6 +638,11 @@
                     success: function (response) {
                         console.log(response)
                         let models = [];
+                        //
+                        models.push(`
+                        <option value="" selected="" disabled="" hidden="">Выбрать</option>
+                                `)
+                        //                        
                         for(i=0; i < response.length; i++){
                             models.push(`
                                 <option value="${response[i].id}">${response[i].name}</option>
