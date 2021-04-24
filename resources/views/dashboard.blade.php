@@ -469,7 +469,7 @@
                                     <div class="Product__body">
                                         <div class="Product__price uk-visible@m">
                                             <div class="Product__priceText" uk-tooltip="title: Цена при обмене старого аккумулятора; pos: top-left">от {{ $product->trade_price }} ₽</div>
-                                            <div class="Product__priceFrom"  uk-tooltip="title: Цена без обмена; pos: top-left">{{ $product->price  - ($product->price*8)/100 }}₽</div>
+                                            <div class="Product__priceFrom"  uk-tooltip="title: Цена без обмена; pos: top-left">{{ $product->price }}₽</div>
                                         </div>
 
                                         <div class="Product__description">
