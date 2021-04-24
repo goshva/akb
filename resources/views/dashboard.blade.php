@@ -462,7 +462,7 @@
 
                                     <div class="Product__head">
                                         <a href="{{ route('page.product', $product->id) }}" style="display: block;">
-                                            <img class="Product__image" src="{{ $product->img }}" alt="" loading="lazy">
+                                            <img class="Product__image" src="/img/small/{{ $product->img }}" alt="" loading="lazy">
                                         </a>
                                     </div>
 

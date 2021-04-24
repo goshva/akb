@@ -37,7 +37,7 @@
 
                                             <ul class="uk-slideshow-items product__sliderList">
                                                 <li id="imgContainer1" class="product__sliderLi">
-                                                    <img class="product__sliderImage" src="{{ $prod->img }}" alt="" width="350">
+                                                    <img class="product__sliderImage" src="/img/big/{{ $prod->img }}" alt="" width="350">
                                                 </li>
                                             </ul>
 
