@@ -25,14 +25,14 @@
                                         <div class="product__sliderNav">
                                             <ul class="uk-slideshow-nav uk-thumbnav uk-thumbnav-vertical">
                                                 <li uk-slideshow-item="0">
-                                                    <a class="product__sliderThumb" href="#"><img src="{{ $prod->img }}" width="100" alt=""></a>
+                                                    <a class="product__sliderThumb" href="#"><img src="/img/big/{{ $prod->img }}" width="100" alt=""></a>
                                                 </li>
                                             </ul>
                                         </div>
 
                                         <div class="product__sliderContent">
 {{--                                            <div class="product__sliderBadge" uk-tooltip="На этот товар начисляется дополнительный cashback">--}}
-{{--                                                <img src="{{ $prod->img }}" alt="{{ $prod->name }}">--}}
+{{--                                                <img src="/img/big/{{ $prod->img }}" alt="{{ $prod->name }}">--}}
 {{--                                            </div>--}}
 
                                             <ul class="uk-slideshow-items product__sliderList">
@@ -50,7 +50,7 @@
 
                                     <ul class="uk-slideshow-items mobileSlider__list">
                                         <li>
-                                            <img class="mobileSlider__img" src="{{ $prod->img }}" alt="">
+                                            <img class="mobileSlider__img" src="/img/small/{{ $prod->img }}" alt="">
                                         </li>
                                     </ul>
 

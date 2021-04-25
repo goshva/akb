@@ -33343,6 +33343,44 @@ select {
   box-shadow: 1px 1px 1px #ccc;
 }
 
+#loader{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform:translate(-50%,-50%);
+  font-size:125px;
+  width:1em;
+  height:1em;
+  line-height:1.2;
+  overflow:hidden;
+}
+
+#clock{
+  -webkit-animation:clock 1.2s steps(12, end) infinite;
+          animation:clock 1.2s steps(12, end) infinite;
+  display: inline-block;
+}
+
+@-webkit-keyframes clock{
+  0%{
+    transform:translateY(0);
+  }
+
+  100%{
+    transform:translateY(-14.4em);
+  }
+}
+
+@keyframes clock{
+  0%{
+    transform:translateY(0);
+  }
+
+  100%{
+    transform:translateY(-14.4em);
+  }
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
