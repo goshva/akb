@@ -164,7 +164,7 @@
                                                     <div class="AsideBlock__checkboxBlock">
                                                         <input class="AsideBlock__checkboxInput" class="brand__selected"  name="brand" id="{{ $brand->name }}" onclick="brands.push(this.previousElementSibling.id);"  type="checkbox" value="{{ $brand->name }}">
                                                         <label class="AsideBlock__checkboxLabel @if(@in_array($brand->name, json_decode(old('brands')))) AsideBlock__checkboxInputActive @endif" for="{{ $brand->name }}">{{ $brand->name }}</label>
-                                                    </div>
+                                                    </div> 
                                                 @endforeach
                                             </div>
 

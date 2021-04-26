@@ -93,7 +93,6 @@ $('#tagsHeaderFilter').on('click blur', function() {
       var keysearch = $(this).val().toUpperCase()
 //
 $(".uk-drop").hide()
-
 var seararr = keysearch.split(" ");
 for (i = 0; i < seararr.length; i++) {
 
@@ -108,6 +107,7 @@ for (i = 0; i < seararr.length; i++) {
     console.log(seararr[i])
   }
   if (madelserv.some(o => o.name.includes(seararr[i]))){ console.info('madel')}
+  if (akbbrands.some(o => o.name.includes(seararr[i]))){ console.info('akbbrands')}
 
 
 //       if (engineserv.some(o => o.name.includes(seararr[i]))){ console.info('have engine')}

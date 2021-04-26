@@ -115,7 +115,6 @@
                 </ul>
             </div>
             <div class="brand">
-                test2
                 <ul uk-accordion="multiple: true">
                     <li class="accordLi uk-open">
                         <a class="uk-accordion-title accordLi__title" href="#">Бренд</a>
@@ -492,7 +491,7 @@
 
 
                 <div class="searchBar">
-                    <form action="{{ route('search') }}" method="GET">
+                    <!-- <form action="{{ route('search') }}" method="GET"> -->
                         @csrf
                         <div class="uk-inline">
                             <button class="uk-form-icon uk-form-icon-flip searchBar__btn" type="submit" style="display:none">⌛</button>
@@ -506,7 +505,7 @@
                             </div>
 
                         </div>
-                    </form>
+                    <!--</form> -->
                 </div>
 
                 <div class="auth">
@@ -622,9 +621,10 @@
 @yield('scripts')
 <script src="/js/shoppingCart.js"></script>
 <script>
-    const markserv = @json(\App\Models\Mark::select('name')->get())                            
-    const madelserv = @json(\App\Models\Madel::select('name')->get())                            
-    const engineserv = @json(\App\Models\Engine::select('name')->get())  
+    const markserv = @json(\App\Models\Mark::select('name')->get());                            
+    const madelserv = @json(\App\Models\Madel::select('name')->get());                            
+    const akbbrands = @json(\App\Models\Brand::select('name')->get());
+
 </script>
 <script>
 
