@@ -21,8 +21,8 @@ class ProductController extends Controller
         $requests = $request->all();
         isset($requests['priceTo']) ? $priceTo = $requests['priceTo'] : "";
         isset($requests['priceFrom']) ? $priceFrom = $requests['priceFrom'] : "";
-        isset($requests['amperTo']) ? $amperTo = $requests['amperTo'] : "";
-        isset($requests['amperFrom']) ? $amperFrom = $requests['amperFrom'] : "";
+        isset($requests['capacTo']) ? $capacTo = $requests['capacTo'] : "";
+        isset($requests['capacFrom']) ? $capacFrom = $requests['capacFrom'] : "";
         
 
         if (isset($requests['sort'])){
@@ -65,12 +65,14 @@ class ProductController extends Controller
                 $polarity = json_decode($requests['polarity']);
                 $items = $items->whereIn('polarity', $polarity);
             }
-            if (isset($requests['brands']) && isset($requests['amperFrom']) && isset($requests['amperTo'])){
+            if (isset($requests['capacFrom']) && isset($requests['capacTo'])){
                 $brands = json_decode($requests['brands']);
                 $items = Product::where([
-                    ['amperes', '>=', $amperFrom],
-                    ['amperes', '<=', $amperTo],
-                ])->whereIn('brand_id', $brands);
+                    ['price', '>=', $priceFrom],
+                    ['price', '<=', $priceTo],
+                    ['capacity', '>=', $capacFrom],
+                    ['capacity', '<=', $capacTo],
+                ]); //->whereIn('brand_id', $brands);
             }
             if (isset($requests['brands']) && isset($requests['height'])){
                 $items = $items->where('height', '=', $requests['height'])->whereIn('brand_id', $brands);
@@ -138,8 +140,8 @@ class ProductController extends Controller
                 'requests' => $requests,
                 'min' => Product::min('price'),
                 'max' => Product::max('price'),
-                'minA' => Product::min('amperes'),
-                'maxA' => Product::max('amperes')                
+                'minA' => Product::min('capacity'),
+                'maxA' => Product::max('capacity')                
             ]);
         } else {
             if(isset($requests['mark_id']) && isset($requests['model_id']) && isset($requests['generation_id']) && isset($requests['engine_id'])){
@@ -162,7 +164,9 @@ class ProductController extends Controller
                        'products' => $items,
                        'requests' => $requests,
                        'min' => Product::min('price'),
-                       'max' => Product::max('price')
+                       'max' => Product::max('price'),
+                       'minA' => Product::min('capacity'),
+                       'maxA' => Product::max('capacity')  
                    ]);
                }
                $mark_name = Mark::where('id', '=', $requests['mark_id'])->pluck('name');
@@ -187,8 +191,8 @@ class ProductController extends Controller
                 'requests' => $requests,
                 'min' => Product::min('price'),
                 'max' => Product::max('price'),
-                'minA' => Product::min('amperes'),
-                'maxA' => Product::max('amperes')
+                'minA' => Product::min('capacity'),
+                'maxA' => Product::max('capacity')
             ]);
 
         }

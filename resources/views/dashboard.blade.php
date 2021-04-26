@@ -236,20 +236,20 @@
                                                 <div class="uk-width-1-2@m">
                                                     <div class="uk-inline">
                                                         <span class="uk-form-icon AsideBlock__inputText">от</span>
-                                                        <input class="uk-input AsideBlock__input" id="amperFrom" name="amperFrom" type="text" value="">
+                                                        <input class="uk-input AsideBlock__input" id="capacFrom" name="capacFrom" type="text" value="">
                                                     </div>
                                                 </div>
 
                                                 <div class="uk-width-1-2@m">
                                                     <div class="uk-inline">
                                                         <span class="uk-form-icon AsideBlock__inputText">до</span>
-                                                        <input class="uk-input AsideBlock__input" id="amperTo" name="amperTo" type="text" value="">
+                                                        <input class="uk-input AsideBlock__input" id="capacTo" name="capacTo" type="text" value="">
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div class="AsideBlock__sliderBlock">
-                                                <div id="amperSlider" class="AsideBlock__sliderPrice"></div>
+                                                <div id="capacSlider" class="AsideBlock__sliderPrice"></div>
                                             </div>
                                         </div>                                        
                                     </li>
@@ -589,23 +589,23 @@
                     $('#section4 #priceFrom').val($("#priceSlider").slider('values', 0));
                     $('#section4 #priceTo').val($("#priceSlider").slider('values', 1));
                 });
-                $("#amperSlider").slider({
+                $("#capacSlider").slider({
                     animate: "slow",
                     max: {{ $maxA }},
                     min: {{ $minA }},
                     range: true,
-                    @if(isset($requests['amperFrom']) && isset($requests['amperTo']))
-                        values: [{{ $requests['amperFrom'] }}, {{ $requests['amperTo'] }}],
+                    @if(isset($requests['capacFrom']) && isset($requests['capacTo']))
+                        values: [{{ $requests['capacFrom'] }}, {{ $requests['capacTo'] }}],
                     @else
-                        values: [200, {{ $maxА }}],
+                        values: [1,400],
                     @endif                    
                     //values: [{{ $minA }},{{ $maxA }}]
                 });
-                $('#section4 #amperFrom').val($("#amperSlider").slider('values', 0));
-                $('#section4 #amperTo').val($("#amperSlider").slider('values', 1));
-                $("#section4 #amperSlider").on("slidechange slidecreate slide", function( event, ui ) {
-                    $('#section4 #amperFrom').val($("#amperSlider").slider('values', 0));
-                    $('#section4 #amperTo').val($("#amperSlider").slider('values', 1));
+                $('#section4 #capacFrom').val($("#capacSlider").slider('values', 0));
+                $('#section4 #capacTo').val($("#capacSlider").slider('values', 1));
+                $("#section4 #capacSlider").on("slidechange slidecreate slide", function( event, ui ) {
+                    $('#section4 #capacFrom').val($("#capacSlider").slider('values', 0));
+                    $('#section4 #capacTo').val($("#capacSlider").slider('values', 1));
                 });                
         </script>
         <script>
