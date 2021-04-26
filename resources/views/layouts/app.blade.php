@@ -77,7 +77,7 @@
     $settings = \App\Models\Settings::all()->first();
 
 @endphp
-<!--
+
 <form id="tagsFilter" uk-offcanvas="flip: true; overlay: true; stack: true">
     <button class="uk-offcanvas-close tagsClose" type="button" uk-close></button>
 
@@ -222,7 +222,7 @@
 
     </div>
 
-</form> -->
+</form> 
 
 <div id="mobileNav" class="mobileNavId" uk-offcanvas="overlay: true; stack: true">
     <button class="uk-offcanvas-close mobileClose" type="button" uk-close></button>

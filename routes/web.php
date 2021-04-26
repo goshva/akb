@@ -66,6 +66,9 @@ Route::prefix('/info')->group(function (){
     })->name('info.replacement');
 });
 
+Route::get('/recommendation/{id}', function ($id){
+    return view('rec.' .$id);
+});
 Route::get('/recommendation', function (){
     return  view('recommendation');
 })->name('recommendation');
