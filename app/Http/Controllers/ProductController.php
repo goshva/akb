@@ -21,6 +21,9 @@ class ProductController extends Controller
         $requests = $request->all();
         isset($requests['priceTo']) ? $priceTo = $requests['priceTo'] : "";
         isset($requests['priceFrom']) ? $priceFrom = $requests['priceFrom'] : "";
+        isset($requests['amperTo']) ? $amperTo = $requests['amperTo'] : "";
+        isset($requests['amperFrom']) ? $amperFrom = $requests['amperFrom'] : "";
+        
 
         if (isset($requests['sort'])){
             if ($requests['sort'] == 'desc'){
@@ -62,9 +65,12 @@ class ProductController extends Controller
                 $polarity = json_decode($requests['polarity']);
                 $items = $items->whereIn('polarity', $polarity);
             }
-            if (isset($requests['amperes'])){
-                $amperes = $requests['amperes'];
-                $items = $items->where('amperes', $amperes);
+            if (isset($requests['brands']) && isset($requests['amperFrom']) && isset($requests['amperTo'])){
+                $brands = json_decode($requests['brands']);
+                $items = Product::where([
+                    ['amperes', '>=', $amperFrom],
+                    ['amperes', '<=', $amperTo],
+                ])->whereIn('brand_id', $brands);
             }
             if (isset($requests['brands']) && isset($requests['height'])){
                 $items = $items->where('height', '=', $requests['height'])->whereIn('brand_id', $brands);
@@ -131,7 +137,9 @@ class ProductController extends Controller
                 'products' => Product::paginate($items->get())->appends(request()->query()),
                 'requests' => $requests,
                 'min' => Product::min('price'),
-                'max' => Product::max('price')
+                'max' => Product::max('price'),
+                'minA' => Product::min('amperes'),
+                'maxA' => Product::max('amperes')                
             ]);
         } else {
             if(isset($requests['mark_id']) && isset($requests['model_id']) && isset($requests['generation_id']) && isset($requests['engine_id'])){
@@ -178,7 +186,9 @@ class ProductController extends Controller
                 'products' => $items,
                 'requests' => $requests,
                 'min' => Product::min('price'),
-                'max' => Product::max('price')
+                'max' => Product::max('price'),
+                'minA' => Product::min('amperes'),
+                'maxA' => Product::max('amperes')
             ]);
 
         }

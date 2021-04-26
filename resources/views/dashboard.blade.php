@@ -232,16 +232,26 @@
                                     <li class="AsideBlock__accordeon uk-open">
                                         <a class="uk-accordion-title AsideBlock__accordeonTitle" href="#">Емкость</a>
                                         <div class="uk-accordion-content AsideBlock__accordeonContent">
-                                            <div class="AsideBlock__scrollContent">
-                                                <div class="AsideBlock__checkboxBlock">
+                                            <div class="uk-grid-small" uk-grid>
+                                                <div class="uk-width-1-2@m">
                                                     <div class="uk-inline">
-                                                        <span class="uk-form-icon AsideBlock__inputText">A</span>
-                                                        <input class="uk-input AsideBlock__input" name="amperes" type="text" value="{{ old('amperes') }}">
+                                                        <span class="uk-form-icon AsideBlock__inputText">от</span>
+                                                        <input class="uk-input AsideBlock__input" id="amperFrom" name="amperFrom" type="text" value="">
+                                                    </div>
+                                                </div>
+
+                                                <div class="uk-width-1-2@m">
+                                                    <div class="uk-inline">
+                                                        <span class="uk-form-icon AsideBlock__inputText">до</span>
+                                                        <input class="uk-input AsideBlock__input" id="amperTo" name="amperTo" type="text" value="">
                                                     </div>
                                                 </div>
                                             </div>
 
-                                        </div>
+                                            <div class="AsideBlock__sliderBlock">
+                                                <div id="amperSlider" class="AsideBlock__sliderPrice"></div>
+                                            </div>
+                                        </div>                                        
                                     </li>
                                 </ul>
                             </div>
@@ -579,7 +589,25 @@
                     $('#section4 #priceFrom').val($("#priceSlider").slider('values', 0));
                     $('#section4 #priceTo').val($("#priceSlider").slider('values', 1));
                 });
-            </script>
+                $("#amperSlider").slider({
+                    animate: "slow",
+                    max: {{ $maxA }},
+                    min: {{ $minA }},
+                    range: true,
+                    @if(isset($requests['amperFrom']) && isset($requests['amperTo']))
+                        values: [{{ $requests['amperFrom'] }}, {{ $requests['amperTo'] }}],
+                    @else
+                        values: [200, {{ $maxА }}],
+                    @endif                    
+                    //values: [{{ $minA }},{{ $maxA }}]
+                });
+                $('#section4 #amperFrom').val($("#amperSlider").slider('values', 0));
+                $('#section4 #amperTo').val($("#amperSlider").slider('values', 1));
+                $("#section4 #amperSlider").on("slidechange slidecreate slide", function( event, ui ) {
+                    $('#section4 #amperFrom').val($("#amperSlider").slider('values', 0));
+                    $('#section4 #amperTo').val($("#amperSlider").slider('values', 1));
+                });                
+        </script>
         <script>
         
         let searchParams = new URLSearchParams(window.location.search);
