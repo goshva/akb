@@ -65,14 +65,14 @@ $('#tagsHeaderFilter').on('click blur', function() {
     
     var ru = {
       'А': 'A', 'Б': 'B', 'В': 'V', 'Г': 'G', 'Д': 'D', 
-      'Е': 'E', 'Ё': 'E', 'Ж': 'J', 'З': 'Z', 'И': 'I', 
+      'Е': 'E', 'Ё': 'E', 'Ж': 'J', 'З': 'Z', 'И': 'I',  'Й': 'Y', 
       'К': 'K', 'Л': 'L', 'М': 'M', 'Н': 'N', 'О': 'O', 
       'П': 'P', 'Р': 'R', 'С': 'C', 'Т': 'T', 'У': 'U', 
       'Ф': 'F', 'Х': 'X', 'Ц': 'C', 'Ч': 'CH', 'Ш': 'SH', 
-      'Щ': 'SHCH', 'Ы': 'Y', 'Э': 'E', 'Ю': 'U', 'Я': 'YA'
+      'Щ': 'SHCH', 'Ы': 'Y', 'Э': 'A', 'Ю': 'U', 'Я': 'YA'
     }, n_str = [];
     
-    str = str.replace(/[ЬЪ]+/g, '').replace(/Й/g, 'i');
+    str = str.replace(/[ЬЪ]+/g, '')//.replace(/Й/g, 'i');
     
     for ( var i = 0; i < str.length; ++i ) {
        n_str.push(
@@ -96,13 +96,13 @@ $(".uk-drop").hide()
 
 var seararr = keysearch.split(" ");
 for (i = 0; i < seararr.length; i++) {
+
   if (rusmarks.some(o => o === seararr[i])){   seararr[i]= marks[rusmarks.indexOf(seararr[i])] }
 
   if (markserv.some(o => o.name === seararr[i])){    seararr.splice(i,0); }
   if (madelserv.some(o => o.name.includes(rus_to_latin(seararr[i])))){ 
     
     console.log(seararr[i])
-    console.log(rus_to_latin(seararr[i]))
     //
     seararr[i] =  rus_to_latin(seararr[i])
     console.log(seararr[i])
