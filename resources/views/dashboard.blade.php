@@ -152,6 +152,7 @@
                                 }
                             </style>
                             <div class="AsideBlock">
+                                test
                                 <ul uk-accordion="multiple: true">
                                     <li class="AsideBlock__accordeon uk-open">
                                         <a class="uk-accordion-title AsideBlock__accordeonTitle" href="#">Бренд</a>
