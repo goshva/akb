@@ -92,6 +92,8 @@ $('#tagsHeaderFilter').on('click blur', function() {
       e.preventDefault()
       var keysearch = $(this).val().toUpperCase()
 //
+$(".uk-drop").hide()
+
 var seararr = keysearch.split(" ");
 for (i = 0; i < seararr.length; i++) {
   if (rusmarks.some(o => o === seararr[i])){   seararr[i]= marks[rusmarks.indexOf(seararr[i])] }
@@ -128,6 +130,7 @@ console.log(keysearch)
                       $("#search_result").html('Ничего не найдено')
   
                   } else {
+                    $(".uk-drop").show()
                       let items = []
                       for (i=0; i < response.length; i++){
                           items.push(`
