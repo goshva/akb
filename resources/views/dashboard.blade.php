@@ -426,7 +426,7 @@
                                 <div class="ProductList">
                                     <div class="ProductList__header">
                                         <a style="display: flex; width: 100%; height: 100%" href="{{ route('page.product', $product->id) }}">
-                                            <img class="ProductList__img" src="{{ $product->img }}" alt="{{ $product->name }}" loading="lazy">
+                                            <img class="ProductList__img" src="/img/small/{{ $product->img }}" alt="{{ $product->name }}" loading="lazy">
                                         </a>
                                     </div>
 
@@ -443,11 +443,11 @@
                                     <div class="ProductList__footer">
                                         <div class="ProductList__price">
                                             <div class="ProductList__priceText" uk-tooltip="title: Цена при сдаче старого аккумулятора;pos: top-left">от {{ $product->trade_price  - ($product->trade_price*8)/100 }} ₽</div>
-                                            <div class="Product__priceFrom" uk-tooltip="title: Цена без обмена;pos: top-left">{{ $product->price  - ($product->price*8)/100 }} ₽</div>
+                                            <div class="Product__priceFrom" uk-tooltip="title: Цена без обмена;pos: top-left">{{ $product->trade_price}} ₽</div>
                                         </div>
 
                                         <div class="ProductList__btn">
-                                            <a style="background: #2A50B6" href="javascript:;"  class="Product__btn add-to-cart" data-name="{{ $product->name }}" data-price="{{ $product->price  - ($product->price*8)/100 }}">Купить</a>
+                                            <a style="background: #2A50B6" href="javascript:;"  class="Product__btn add-to-cart" data-name="{{ $product->name }}" data-price="{{ $product->trade_price}}">Купить</a>
                                         </div>
                                     </div>
                                 </div>

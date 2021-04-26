@@ -60,14 +60,66 @@ $('#tagsHeaderFilter').on('click blur', function() {
       timer = setTimeout(fn.bind(this, ...args), ms || 0)
     }
   }
-  
+  //
+  function rus_to_latin ( str ) {
+    
+    var ru = {
+      'А': 'A', 'Б': 'B', 'В': 'V', 'Г': 'G', 'Д': 'D', 
+      'Е': 'E', 'Ё': 'E', 'Ж': 'J', 'З': 'Z', 'И': 'I', 
+      'К': 'K', 'Л': 'L', 'М': 'M', 'Н': 'N', 'О': 'O', 
+      'П': 'P', 'Р': 'R', 'С': 'C', 'Т': 'T', 'У': 'U', 
+      'Ф': 'F', 'Х': 'X', 'Ц': 'C', 'Ч': 'CH', 'Ш': 'SH', 
+      'Щ': 'SHCH', 'Ы': 'Y', 'Э': 'E', 'Ю': 'U', 'Я': 'YA'
+    }, n_str = [];
+    
+    str = str.replace(/[ЬЪ]+/g, '').replace(/Й/g, 'i');
+    
+    for ( var i = 0; i < str.length; ++i ) {
+       n_str.push(
+              ru[ str[i] ]
+           || ru[ str[i].toLowerCase() ] == undefined && str[i]
+           || ru[ str[i].toLowerCase() ].toUpperCase()
+       );
+    }
+    
+    return n_str.join('');
+}
+  //
+  var marks = ["AUDI", "BMW", "CADILLAC", "CHERY", "CHEVROLET", "CHRYSLER", "CITROEN", "DAEWOO", "DODGE", "FIAT", "FORD", "HONDA", "HYUNDAI", "INFINITI", "JEEP", "KIA", "LANDROVER", "LEXUS", "MAZDA", "MERCEDES", "MITSUBISHI", "NISSAN", "OPEL", "PEUGEOT", "RENAULT", "SKODA", "SSANGYONG", "SUBARU", "SUZUKI", "TOYOTA", "VOLKSWAGEN", "VOLVO"]
+  var rusmarks = ["АУДИ", "БМВ", "КАДИЛЛАК", "ЧЕРИ", "ШЕВРОЛЕ", "КРАЙСТЛЕР", "СИТРОЕН", "ДАЙВУ", "ДОДЖ", "ФИАТ", "ФОРД", "ХОНДА", "ХЁНДЭ", "ИНФИНИТИ", "ДЖИП", "КИА", "ЛЭНД РОВЕР", "ЛЕКСУС", "МАЗДА", "МЕРСЕДЕС", "МИЦУБИШИ", "НИССАН", "ОПЕЛЬ", "ПЕЖО", "РЕНО", "ШКОДА", "САНЙОНГ", "СУБАРУ", "СУЗУКИ", "ТОЙОТА", "ФОЛЬКСВАГЕН", "ВОЛЬВО"]
+  //
   $(".searchBar__input").on('change keyup', delay(function (e){
       e.preventDefault()
-      let key = $(this).val()
-      if(key.length > 1){
-        $(".searchBar__btn").show(1000);
+      var keysearch = $(this).val().toUpperCase()
+//
+var seararr = keysearch.split(" ");
+for (i = 0; i < seararr.length; i++) {
+  if (rusmarks.some(o => o === seararr[i])){   seararr[i]= marks[rusmarks.indexOf(seararr[i])] }
+
+  if (markserv.some(o => o.name === seararr[i])){    seararr.splice(i,0); }
+  if (madelserv.some(o => o.name.includes(rus_to_latin(seararr[i])))){ 
+    
+    console.log(seararr[i])
+    console.log(rus_to_latin(seararr[i]))
+    //
+    seararr[i] =  rus_to_latin(seararr[i])
+    console.log(seararr[i])
+  }
+  if (madelserv.some(o => o.name.includes(seararr[i]))){ console.info('madel')}
+
+
+//       if (engineserv.some(o => o.name.includes(seararr[i]))){ console.info('have engine')}
+//       if (engineserv.some(o => o.name === seararr[i])){ console.info('have engine')}
+}  
+keysearch = seararr.join(' ');
+console.log(keysearch)
+
+//      
+
+      if(keysearch.length > 1){
+        $(".searchBar__btn").show(500);
           $.ajax({
-              url: "/search/"+key,
+              url: "/search/"+keysearch,
               method: "GET",
               success: function (response){
                   console.log(response)
@@ -82,7 +134,7 @@ $('#tagsHeaderFilter').on('click blur', function() {
                    <div class="ProductSearch">
                                       <div class="ProductList__header">
                                           <a style="display: flex; width: 100%; height: 100%" href="/product/${response[i].id}">
-                                              <img class="ProductSearch__img" src="${response[i].img}" alt="">
+                                              <img class="ProductSearch__img" src="/img/small/${response[i].img}" alt="">
                                           </a>
                                       </div>
   

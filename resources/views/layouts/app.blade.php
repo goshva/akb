@@ -619,7 +619,11 @@
 <script src="/js/Catalog.js"></script>
 @yield('scripts')
 <script src="/js/shoppingCart.js"></script>
-
+<script>
+    const markserv = @json(\App\Models\Mark::select('name')->get())                            
+    const madelserv = @json(\App\Models\Madel::select('name')->get())                            
+    const engineserv = @json(\App\Models\Engine::select('name')->get())  
+</script>
 <script>
 
     $(".add-to-cart").click(function (event) {
