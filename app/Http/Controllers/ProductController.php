@@ -72,7 +72,7 @@ class ProductController extends Controller
                     ['price', '<=', $priceTo],
                     ['capacity', '>=', $capacFrom],
                     ['capacity', '<=', $capacTo],
-                ]); //->whereIn('brand_id', $brands);
+                ])->whereIn('brand_id', $brands);
             }
             if (isset($requests['brands']) && isset($requests['height'])){
                 $items = $items->where('height', '=', $requests['height'])->whereIn('brand_id', $brands);
