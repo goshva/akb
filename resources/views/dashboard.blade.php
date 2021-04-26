@@ -255,6 +255,11 @@
                 </div>
                 <div class="uk-width-expand@m">
                     <div class="tagsHeader">
+                        <div class="psevo_banners mb-2">
+                            <a href="{{ route('info.promotions') }}#news" class="item">
+                                <img src="/img/sliders/1.jpg" alt="">
+                            </a>
+                        </div>
                         <div class="banners mb-2">
                             <a href="{{ route('info.promotions') }}#news" class="item">
                                 <img src="/img/sliders/1.jpg" alt="">
@@ -747,13 +752,16 @@
 <path d="M87.2083 34.1941L11.5646 34.1941L40.5234 6.54521C42.0401 5.09625 42.0875 2.69716 40.6656 1.17695C39.22 -0.343266 36.8266 -0.390772 35.3099 1.03443L2.2276 32.6264C0.80572 34.0516 -8.96862e-06 35.9756 -8.6156e-06 37.9946C-8.26258e-06 40.0137 0.782023 41.9377 2.29869 43.4342L35.3099 74.9549C36.0445 75.6675 36.9924 76 37.9167 76C38.912 76 39.9073 75.5962 40.6656 74.8123C42.1112 73.2921 42.0401 70.893 40.5234 69.4441L11.4461 41.7952L87.2083 41.7952C89.2937 41.7952 91 40.0849 91 37.9946C91 35.9043 89.2937 34.1941 87.2083 34.1941Z" fill="#2A50B6"/>
 </svg>
 `
-            $('.banners').slick({
+        $(window).on('load', function() {
+            $('.psevo_banners').hide()
+            $('.banners').show().slick({
                 autoplay: true,
                 autoplaySpeed: 2000,
                 // appendArrows: $(".Buttons"),
                 nextArrow: next,
                 prevArrow: prev,
             })
+        });
         </script>
     @endsection
 <style>
