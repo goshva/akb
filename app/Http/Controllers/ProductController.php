@@ -341,4 +341,7 @@ class ProductController extends Controller
             //            $products = collect([]);
             return response($find);
     }
+//    '_token': $('meta[name="csrf-token"]').attr('content'),
+
+
 }

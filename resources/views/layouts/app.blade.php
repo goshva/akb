@@ -629,8 +629,8 @@
 <script src="/js/shoppingCart.js"></script>
 <script>
     const markserv = @json(\App\Models\Mark::select('name')->get());                            
-    const madelserv = @json(\App\Models\Madel::select('name')->get());                            
-//    const akbbrands = @json(\App\Models\Brand::select('name')->get());
+    const madelserv = @json((\App\Models\Madel::select('name')->get()));                            
+    const akbbrands = @json(\App\Models\Brand::select('name')->get());
 
 </script>
 <script>

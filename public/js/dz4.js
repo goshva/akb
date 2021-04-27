@@ -93,21 +93,18 @@ $('#tagsHeaderFilter').on('click blur', function() {
       var keysearch = $(this).val().toUpperCase()
 //
 $(".uk-drop").hide()
+
+var params = {};
 var seararr = keysearch.split(" ");
 for (i = 0; i < seararr.length; i++) {
 
   if (rusmarks.some(o => o === seararr[i])){   seararr[i]= marks[rusmarks.indexOf(seararr[i])] }
 
-  if (markserv.some(o => o.name === seararr[i])){    seararr.splice(i,0); }
-  if (madelserv.some(o => o.name.includes(rus_to_latin(seararr[i])))){ 
-    
-    console.log(seararr[i])
-    //
-    seararr[i] =  rus_to_latin(seararr[i])
-    console.log(seararr[i])
-  }
+  if (markserv.some(o => o.name === seararr[i])){  params.marka = seararr[i]  }//seararr.splice(i,0); }
+  if (madelserv.some(o => o.name.includes(rus_to_latin(seararr[i])))){ params.model = seararr[i] }
   if (madelserv.some(o => o.name.includes(seararr[i]))){ console.info('madel')}
-  if (akbbrands.some(o => o.name.includes(seararr[i]))){ console.info('akbbrands')}
+
+  if (akbbrands.some(o => o.name.toUpperCase()===seararr[i])){ params.brand = seararr[i]}
 
 
 //       if (engineserv.some(o => o.name.includes(seararr[i]))){ console.info('have engine')}
@@ -116,13 +113,19 @@ for (i = 0; i < seararr.length; i++) {
 keysearch = seararr.join(' ');
 console.log(keysearch)
 
-//      
-
+//
+$.ajaxSetup({
+  headers:
+  { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
+});      
+//
       if(keysearch.length > 1){
         $(".searchBar__btn").show(500);
           $.ajax({
-              url: "/search/"+keysearch,
-              method: "GET",
+              url: "/postajax", //+keysearch,
+              method: "POST",
+           //   _token: $('meta[name="csrf-token"]').attr('content') ,
+              data: params,
               success: function (response){
                   console.log(response)
                   $(".searchBar__btn").hide(800);

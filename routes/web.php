@@ -5,6 +5,7 @@ use App\Models\Generation;
 use App\Models\Madel;
 use App\Models\Article;
 use App\Models\Mark;
+use App\Http\Controllers\AjaxController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('ajax', function(){ return view('ajax'); });
+//Route::post('/postajax','App\Http\Controllers\AjaxController@post');
+Route::post('/postajax',[\App\Http\Controllers\AjaxController::class, 'post']);
 
 Route::get('/about/', function (){
     return view('about');
