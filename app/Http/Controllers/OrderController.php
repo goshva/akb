@@ -71,6 +71,16 @@ class OrderController extends Controller
             $o->username = $request->username;
             $o->phone = $request->phone;
             $o->save();
+//
+$to_name = 'Admin';
+$to_email = 'sha.egor@gmail.com';
+$data = array('name'=>"Sam Jose", "body" => "Test mail");
+Mail::send('emails', $data, function($message) use ($to_name, $to_email) {
+$message->to($to_email, $to_name)->subject('Artisans Web Testing Mail');
+$message->from('sha.egor@gmail.com','Artisans Web');
+});
+
+//            
             return redirect()->back()->with(['message' => 'Вы успешно обновили заказ']);
         }
         return view('admin.orders.edit')->with([
