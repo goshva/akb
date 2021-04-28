@@ -364,6 +364,19 @@
                             </form>   
                             <div class="tagsHeaderContent">
 
+                        @if(count($products) == 0)
+                           <h4 class="SectionTitle__text" style="margin: -21px auto 14px auto;"> 
+                            Cвяжитесь с менеджером по телефону: 
+                           <a href="tel:89256019089" class="">+7 925 601-90-89</a>
+                           </h4>
+
+                          
+
+
+                        @endif
+                            </div>
+                        <div class="tagsHeaderContent">
+
                                 <div class="uk-inline">
                                     <div class="uk-width-4-4@l  uk-align-center">
                                         <script data-b24-form="click/221/zceylj" data-skip-moving="true">

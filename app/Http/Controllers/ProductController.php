@@ -153,7 +153,6 @@ class ProductController extends Controller
                    $items = explode(',', $list);
                    $items = Product::whereIn('article', $items)->get();
                    $items = Product::paginate($items)->appends(request()->query());
-
                    
                } else {
                    $items = Product::paginate(Product::all())->appends(request()->query());
