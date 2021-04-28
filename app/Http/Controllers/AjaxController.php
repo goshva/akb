@@ -34,7 +34,7 @@ class AjaxController extends Controller {
             }
         }
         
-        $find = $product::whereIn('article', array_unique($arrArticles))->take(50)->get();
+        $find = $product::whereIn('article', array_unique($arrArticles))->orderBy('price', 'ASC')->take(50)->get();
         return response()-> json($find);
 
 }
@@ -50,16 +50,10 @@ class AjaxController extends Controller {
             }
         }
 
-            if (isset($brand)){
-            $find = $product::whereIn('article', array_unique($arrArticles))->
-            where('brand_id', 'LIKE', '%'.$brand.'%')->
-            get();
-            
-            }
-            else {
-            $find = $product::whereIn('article', array_unique($arrArticles))->get();
 
-            }
+            $find = $product::whereIn('article', array_unique($arrArticles))->orderBy('price', 'ASC')->get();
+
+            
                 return response()-> json($find);
             /*
             $response = array(
@@ -71,5 +65,21 @@ class AjaxController extends Controller {
             */ 
             //return response()->json($response); 
         }
+        if (isset($brand)){
+            $articles =  \App\Models\Article::all()->pluck('list'); 
+    
+            foreach ($articles as &$value) {
+                $arr = explode(",",$value);
+                foreach ($arr as &$art) {
+                    array_push($arrArticles,$art);
+                }
+            }
+            $find = $product::whereIn('article', array_unique($arrArticles))->
+            where('brand_id', 'LIKE', '%'.$brand.'%')->orderBy('price', 'ASC')->
+            get();
+            return response()-> json($find);
+
+        }
+ 
 }
 }
