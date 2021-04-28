@@ -3,6 +3,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Madel;
 use App\Models\Product;
+use App\Models\Mark;
+
 
 
 class AjaxController extends Controller {
@@ -11,28 +13,63 @@ class AjaxController extends Controller {
 
     //
     //$input = $request->all();
+    $marka = $request->marka;
     $madel = $request->model;
-    $find = Madel::where('name', $madel)->pluck('id'); 
-
-    $articles =  \App\Models\Article::where('model_id',$find)->pluck('list'); 
-    
+    $brand = $request->brand;
     $arrArticles = array();
-    foreach ($articles as &$value) {
-        $arr = explode(",",$value);
-        foreach ($arr as &$art) {
-            array_push($arrArticles,$art);
+
+
+    if ( isset($marka) && !isset($madel) && !isset($brand)){
+
+        $marks = Mark::all();
+        $marksids = Mark::where('name', $marka)->pluck('id'); 
+        ////var_dump($find);
+        $articles =  \App\Models\Article::where('mark_id',$marksids)->pluck('list');
+
+    
+        foreach ($articles as &$value) {
+            $arr = explode(",",$value);
+            foreach ($arr as &$art) {
+                array_push($arrArticles,$art);
+            }
         }
-    }
-    $find = $product::whereIn('article', array_unique($arrArticles))->get();
+        
+        $find = $product::whereIn('article', array_unique($arrArticles))->take(50)->get();
         return response()-> json($find);
-    /*
-      $response = array(
-          'marka' => $request->marka,
-          'model' => $request->model,
-          'brand' => $request->brand,
-          //'e' => $request->e,
-      );
-     */ 
-      //return response()->json($response); 
-   }
+
+}
+
+    if ( isset($marka) && isset($madel)){
+        $find = Madel::where('name', $madel)->pluck('id'); 
+        $articles =  \App\Models\Article::where('model_id',$find)->pluck('list'); 
+    
+        foreach ($articles as &$value) {
+            $arr = explode(",",$value);
+            foreach ($arr as &$art) {
+                array_push($arrArticles,$art);
+            }
+        }
+
+            if (isset($brand)){
+            $find = $product::whereIn('article', array_unique($arrArticles))->
+            where('brand_id', 'LIKE', '%'.$brand.'%')->
+            get();
+            
+            }
+            else {
+            $find = $product::whereIn('article', array_unique($arrArticles))->get();
+
+            }
+                return response()-> json($find);
+            /*
+            $response = array(
+                'marka' => $request->marka,
+                'model' => $request->model,
+                'brand' => $request->brand,
+                //'e' => $request->e,
+            );
+            */ 
+            //return response()->json($response); 
+        }
+}
 }

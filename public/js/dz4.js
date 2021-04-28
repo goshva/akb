@@ -88,9 +88,16 @@ $('#tagsHeaderFilter').on('click blur', function() {
   var marks = ["AUDI", "BMW", "CADILLAC", "CHERY", "CHEVROLET", "CHRYSLER", "CITROEN", "DAEWOO", "DODGE", "FIAT", "FORD", "HONDA", "HYUNDAI", "INFINITI", "JEEP", "KIA", "LANDROVER", "LEXUS", "MAZDA", "MERCEDES", "MITSUBISHI", "NISSAN", "OPEL", "PEUGEOT", "RENAULT", "SKODA", "SSANGYONG", "SUBARU", "SUZUKI", "TOYOTA", "VOLKSWAGEN", "VOLVO"]
   var rusmarks = ["АУДИ", "БМВ", "КАДИЛЛАК", "ЧЕРИ", "ШЕВРОЛЕ", "КРАЙСТЛЕР", "СИТРОЕН", "ДАЙВУ", "ДОДЖ", "ФИАТ", "ФОРД", "ХОНДА", "ХЁНДЭ", "ИНФИНИТИ", "ДЖИП", "КИА", "ЛЭНД РОВЕР", "ЛЕКСУС", "МАЗДА", "МЕРСЕДЕС", "МИЦУБИШИ", "НИССАН", "ОПЕЛЬ", "ПЕЖО", "РЕНО", "ШКОДА", "САНЙОНГ", "СУБАРУ", "СУЗУКИ", "ТОЙОТА", "ФОЛЬКСВАГЕН", "ВОЛЬВО"]
   //
+
   $(".searchBar__input").on('change keyup', delay(function (e){
       e.preventDefault()
       var keysearch = $(this).val().toUpperCase()
+//
+$('body').on('click',function(event){
+  if(!$(event.target).is('.searchBar__input')){
+    $(".uk-drop").hide()
+  }
+});
 //
 $(".uk-drop").hide()
 
@@ -104,7 +111,10 @@ for (i = 0; i < seararr.length; i++) {
   if (madelserv.some(o => o.name.includes(rus_to_latin(seararr[i])))){ params.model = seararr[i] }
   if (madelserv.some(o => o.name.includes(seararr[i]))){ console.info('madel')}
 
-  if (akbbrands.some(o => o.name.toUpperCase()===seararr[i])){ params.brand = seararr[i]}
+  if (akbbrands.some(o => o.name.toUpperCase()===seararr[i])){ 
+    console.log(seararr[i])
+
+    params.brand = seararr[i]}
 
 
 //       if (engineserv.some(o => o.name.includes(seararr[i]))){ console.info('have engine')}
@@ -129,6 +139,7 @@ $.ajaxSetup({
               success: function (response){
                   console.log(response)
                   $(".searchBar__btn").hide(800);
+
                   if (response.length <= 0){
                       $("#search_result").html('Ничего не найдено')
   
