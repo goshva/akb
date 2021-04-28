@@ -90,7 +90,8 @@ $('#tagsHeaderFilter').on('click blur', function() {
   //
 
   $(".searchBar__input").on('change keyup', delay(function (e){
-      e.preventDefault()
+      e.preventDefault();
+      if(e.keyCode != 32){ 
       var keysearch = $(this).val().toUpperCase()
 //
 $('body').on('click',function(event){
@@ -193,6 +194,7 @@ $.ajaxSetup({
               }
           })
       }
+    }
   },800))
   
   
