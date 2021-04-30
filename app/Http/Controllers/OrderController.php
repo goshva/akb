@@ -45,7 +45,7 @@ class OrderController extends Controller
         ];
        
 
-        \Mail::to('sha.egor@gmail.com')->send(new MyTestMail($details));
+        \Mail::to('shopz@акб24.москва')->cc('sha.egor@gmail.com')->send(new MyTestMail($details));
         
 
         return response($o);

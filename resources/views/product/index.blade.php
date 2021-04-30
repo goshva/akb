@@ -103,7 +103,7 @@
 {{--                                            </div>--}}
 {{--                                        </div>--}}
                                         <div class="product__buyFooter">
-                                            <button type="submit" class="product__buyBtn add-to-cart" data-name="{{ $prod->name }}" data-price="{{ $prod->price }}">Купить</button>
+                                            <button type="submit" class="product__buyBtn add-to-cart" data-name="{{ $prod->name }}" data-price="{{ $prod->trade_price }}">Купить</button>
                                         </div>
                                     </div>
 

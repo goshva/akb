@@ -658,7 +658,7 @@
     function displayCart() {
         $(".cart-products").val(localStorage.getItem('shoppingCart'))
         var cartArray = shoppingCart.listCart();
-        // console.log(cartArray);
+        console.log(cartArray);
         var output = "";
 
         for (let i = 0; i < cartArray.length; i++) {
@@ -743,6 +743,11 @@
            }
         });
     })
+</script>
+<script>
+//order
+$('#d2').click( function(){ $('#d1').prop( "disabled", function(i, v) { return !v; } ).val("")})
+$('#d1').click( function(){ $('#d2').prop( "disabled", function(i, v) { return !v; } ).val("")})
 </script>
 </body>
 </html>

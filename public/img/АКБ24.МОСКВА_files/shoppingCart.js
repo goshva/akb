@@ -98,7 +98,7 @@ var shoppingCart = (function () {
     obj.totalCart = function () { // -> return total cost
         var totalCost = 0;
         for (let i = 0; i < cart.length; i++){
-            totalCost += cart[i].price * cart[i].count
+            totalCost += cart[i].trade_price * cart[i].count
         }
         return totalCost.toFixed(2);
     };

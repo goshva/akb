@@ -483,7 +483,7 @@
 
                                     <div class="ProductList__footer">
                                         <div class="ProductList__price">
-                                            <div class="ProductList__priceText" uk-tooltip="title: Цена при сдаче старого аккумулятора;pos: top-left">от {{ $product->trade_price  - ($product->trade_price*8)/100 }} ₽</div>
+                                            <div class="ProductList__priceText" uk-tooltip="title: Цена при сдаче старого аккумулятора;pos: top-left">от {{ $product->trade_price }} ₽</div>
                                             <div class="Product__priceFrom" uk-tooltip="title: Цена без обмена;pos: top-left">{{ $product->trade_price}} ₽</div>
                                         </div>
 
@@ -531,13 +531,13 @@
                                                     class="Product__descriptionCustom">{{ $product->polarity }}</span></p>
                                             <div class="Product__price uk-hidden@m">
                                                 <div class="Product__priceText" uk-tooltip="title: Цена при обмене старого аккумулятора; pos: top-left">от {{ $product->trade_price }} ₽</div>
-                                                <div class="Product__priceFrom"  uk-tooltip="title: Цена без обмена; pos: top-left">{{ $product->price  - ($product->price*8)/100 }} ₽</div>
+                                                <div class="Product__priceFrom"  uk-tooltip="title: Цена без обмена; pos: top-left">{{ $product->trade_price }} ₽</div>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="Product__footer">
-                                        <a style="background: #2A50B6" href="javascript:;"  class="Product__btn add-to-cart" data-name="{{ $product->name }}" data-price="{{ $product->price  - ($product->price*8)/100 }}">Купить</a>
+                                        <a style="background: #2A50B6" href="javascript:;"  class="Product__btn add-to-cart" data-name="{{ $product->name }}" data-price="{{ $product->trade_price}}">Купить</a>
                                     </div>
 
                                 </div>
