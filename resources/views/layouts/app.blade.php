@@ -477,11 +477,11 @@
                 <label class="uk-label">Способ получения</label> <br>
                 <div class="uk-inline uk-margin-small">
                     <label for="d1">Доставка</label>
-                    <input type="radio" id="d1" class="uk-radio delivery" name="delivery" value="Доставка" required>
+                    <input type="text" id="d1" class="uk-input delivery pizdes" name="delivery" value="Москва, ул. " >
                 </div>
-                <div class="uk-inline uk-margin-small">
+                <div class="uk-inline uk-margin-small" style="vertical-align: text-top;">
                     <label for="d2">Самовывоз*</label>
-                    <input type="radio" id="d2" class="uk-radio delivery" name="delivery" value="Самовывоз" required>
+                    <input type="radio" id="d2" class="uk-radio delivery" name="delivery" value="Самовывоз">
                 </div>
                 <input type="hidden" name="products" value="" class="cart-products">
             </div>
