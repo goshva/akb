@@ -2869,3 +2869,11 @@ i {
 
 /*# sourceMappingURL=maps/dz.min.css.map */
 .banners {display:none}
+.text-post ul {
+    list-style-type: disc;
+    padding-left: 2%!important;
+}
+.text-post p {
+padding-top: 15px!important;
+padding-bottom: 10px!important;
+}

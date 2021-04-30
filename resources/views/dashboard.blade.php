@@ -4,12 +4,13 @@
         $categories = \App\Models\Category::all();
         $url = $_SERVER['REQUEST_URI'];
         $brands = \App\Models\Brand::all()->sortBy('name');
+        $recpath = "rec.";
         $diaposesAmper = [[35,44],[45,54],[55,64],[65,75],[76,85],[86,95],[96,105]]; 
 
         if(isset($requests['mark_id']))
                 {
                     $markname = \App\Models\Mark::where('id', $requests['mark_id'])->pluck('name')->first(); 
-                    $recpath = $recpath.$markname;
+                    $recpath = $recpath.strtolower($markname);
                 }
                 else {
                 $markname = "no mark";
@@ -575,18 +576,13 @@
                         })
                     </script>
 
-<div class="SectionTitle">
-<div class="rec">
+                <div class="SectionTitle">
+                <div class="rec">
+                <div class="QueryTitle__text">Рекомендации по модели</div>
                             @if(isset($requests['mark_id']))
-                            { $requests['mark_id'] }
-                            {--@include($recpath) --}
-
-
-
-                                            @else
-                                                no honey
-                                            @endif
-                                    </div></div>
+                            @include($recpath);
+                            @endif
+                            </div></div>
 
                                 <div class="SectionTitle">
                 <h1 class="SectionTitle__text">Схема проезда</h1>
