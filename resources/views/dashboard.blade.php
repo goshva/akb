@@ -4,6 +4,16 @@
         $categories = \App\Models\Category::all();
         $url = $_SERVER['REQUEST_URI'];
         $brands = \App\Models\Brand::all()->sortBy('name');
+        $diaposesAmper = [[35,44],[45,54],[55,64],[65,75],[76,85],[86,95],[96,105]]; 
+
+        if(isset($requests['mark_id']))
+                {
+                    $markname = \App\Models\Mark::where('id', $requests['mark_id'])->pluck('name')->first(); 
+                    $recpath = $recpath.$markname;
+                }
+                else {
+                $markname = "no mark";
+                }
 
         if (count($requests) > 0){
             $link = $_SERVER['REQUEST_URI'];
@@ -388,6 +398,7 @@
                                         <button  class="uk-button uk-button-default aside__btnReset uk-width-1-1"  style="background-color: #2A50B6 !important; color: #fff !important;">Подбор специалистом</button>
                                     </div>
 
+                                   <!-- TODO: DEBUG craSH
                                     <button class="uk-button uk-button-default tagsHeader__filter" type="button" id="tagsHeaderFilter">
                                         <span class="tagsHeader__sortText">Сортировать: </span>
                                         <span class="tagsHeaderTag">
@@ -399,7 +410,8 @@
                                         </span>
 
                                         <i class="icon-angle-up tagsHeader__icon"></i>
-                                    </button>
+                                    </button> -->
+
 {{--                                    <form action="{{ $link }}">--}}
 {{--                                        <select name="sort" id="" onchange="this.form.submit()">--}}
 {{--                                            <option value="desc">По убыванию</option>--}}
@@ -531,6 +543,13 @@
                             </div>
                             <!-- With price from -->
                             @endforeach
+@foreach($diaposesAmper as $diapose)
+<div style="float:left">
+                            <a href="/?priceFrom=1000&priceTo=27000&brands=&depth=&width=&height=&polarity=&capacFrom={{$diapose[0]}}&capacTo={{$diapose[1]}}" class="MiniBtn uk-button uk-button-default">
+                            {{$diapose[0]}} -{{$diapose[1]}} Ач</a>
+</div>
+@endforeach
+
                         </div>
 {{--                    прямоугольные карточки--}}
 {{--                    @if(isset($requests->priceFrom) && isset($requests->priceTo) && $products->total())--}}
@@ -555,6 +574,20 @@
                             console.log($(this))
                         })
                     </script>
+
+<div class="SectionTitle">
+<div class="rec">
+                            @if(isset($requests['mark_id']))
+                            { $requests['mark_id'] }
+                            {--@include($recpath) --}
+
+
+
+                                            @else
+                                                no honey
+                                            @endif
+                                    </div></div>
+
                                 <div class="SectionTitle">
                 <h1 class="SectionTitle__text">Схема проезда</h1>
             </div>
