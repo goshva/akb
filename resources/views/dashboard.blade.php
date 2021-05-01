@@ -10,7 +10,15 @@
         if(isset($requests['mark_id']))
                 {
                     $markname = \App\Models\Mark::where('id', $requests['mark_id'])->pluck('name')->first(); 
-                    $recpath = $recpath.strtolower($markname);
+                    if (view()->exists($recpath.strtolower($markname))){
+                        $recpath = $recpath.strtolower($markname);
+
+                    }
+                    else {
+                        $recpath = "rec.nomodel";
+
+                    } 
+
                 }
                 else {
                 $markname = "no mark";
