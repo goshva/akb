@@ -399,7 +399,7 @@
                                                 var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
                                             })(window,document,'https://cdn-ru.bitrix24.ru/b16395938/crm/form/loader_221.js');
                                         </script>
-                                        <input  class="uk-button uk-button-default aside__btnReset uk-width-1-1"  style="background-color: #2A50B6 !important; color: #fff !important;">Подбор специалистом</button>
+                                        <button  class="uk-button uk-button-default aside__btnReset uk-width-1-1"  style="background-color: #2A50B6 !important; color: #fff !important;">Подбор специалистом</button>
                                     </div>
 
                                    <!-- TODO: DEBUG craSH
