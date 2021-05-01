@@ -329,7 +329,7 @@
                                     <label for="marka">Выберите марку</label> <br>
                                     <select name="mark_id" id="marka" class="marks" required>
                                     <option value="" selected disabled hidden>Выбрать</option>
-                                       @foreach(\App\Models\Mark::all() as $mark)
+                                       @foreach(\App\Models\Mark::all()->sortBy("name") as $mark)
                                             @if(strlen($mark->name) > 0)
                                                 <option value="{{ $mark->id }}">{{ $mark->name }}</option>
                                             @endif
@@ -385,6 +385,9 @@
 
 
                         @endif
+
+
+
                             </div>
                         <div class="tagsHeaderContent">
 
@@ -396,7 +399,7 @@
                                                 var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
                                             })(window,document,'https://cdn-ru.bitrix24.ru/b16395938/crm/form/loader_221.js');
                                         </script>
-                                        <button  class="uk-button uk-button-default aside__btnReset uk-width-1-1"  style="background-color: #2A50B6 !important; color: #fff !important;">Подбор специалистом</button>
+                                        <input  class="uk-button uk-button-default aside__btnReset uk-width-1-1"  style="background-color: #2A50B6 !important; color: #fff !important;">Подбор специалистом</button>
                                     </div>
 
                                    <!-- TODO: DEBUG craSH
@@ -445,6 +448,17 @@
                                     width: 100%;
                                 }
                             </style>
+
+<div class="tagsHeaderContent">
+
+@foreach($diaposesAmper as $diapose)
+<div style="float:left">
+                            <a href="/?priceFrom=1000&priceTo=27000&brands=&depth=&width=&height=&polarity=&capacFrom={{$diapose[0]}}&capacTo={{$diapose[1]}}" class="MiniBtn uk-button uk-button-default">
+                            {{$diapose[0]}} -{{$diapose[1]}} Ач</a>
+</div>
+@endforeach
+</div>
+
                         </div>
 
                     </div>
@@ -544,12 +558,7 @@
                             </div>
                             <!-- With price from -->
                             @endforeach
-@foreach($diaposesAmper as $diapose)
-<div style="float:left">
-                            <a href="/?priceFrom=1000&priceTo=27000&brands=&depth=&width=&height=&polarity=&capacFrom={{$diapose[0]}}&capacTo={{$diapose[1]}}" class="MiniBtn uk-button uk-button-default">
-                            {{$diapose[0]}} -{{$diapose[1]}} Ач</a>
-</div>
-@endforeach
+
 
                         </div>
 {{--                    прямоугольные карточки--}}

@@ -474,15 +474,22 @@
                 <input type="text" class="uk-input pizdes" name="phone" placeholder="Ваш телефон" required>
             </div>
             <div class="uk-inline uk-margin-small">
-                <label class="uk-label">Способ получения</label> <br>
-                <div class="uk-inline uk-margin-small">
-                    <label for="d1">Доставка</label>
-                    <input type="text" id="d1" class="uk-input delivery pizdes" name="delivery" value="Москва, ул. " >
+                <label class="uk-label">Способ получения</label>
                 </div>
-                <div class="uk-inline uk-margin-small" style="vertical-align: text-top;">
-                    <label for="d2">Самовывоз*</label>
-                    <input type="radio" id="d2" class="uk-radio delivery" name="delivery" value="Самовывоз">
+            <div class="uk-inline uk-margin-small">
+                <label for="d1">Доставка</label>
+                <input type="radio" id="d1" class="uk-radio delivery" name="delivery" value="Доставка" checked>
                 </div>
+            <div class="uk-inline uk-margin-small">
+                <label for="d2">Самовывоз*</label>
+                <input type="radio" id="d2" class="uk-radio delivery" name="delivery" value="Самовывоз">
+            </div>
+            <br>
+            <div class="uk-margin-small">
+            <label for="optional" id="labeladress">Адрес</label>
+            <input type="text" id="optional" class="uk-input pizdes delivery" name="delivery" value="Москва ул. ">
+
+
                 <input type="hidden" name="products" value="" class="cart-products">
             </div>
             <button type="submit" class="Product__btn">Оформить заказ</button>
@@ -746,8 +753,15 @@
 </script>
 <script>
 //order
-$('#d2').click( function(){ $('#d1').prop( "disabled", function(i, v) { return !v; } ).val("")})
-$('#d1').click( function(){ $('#d2').prop( "disabled", function(i, v) { return !v; } ).val("")})
+$('input[name="delivery"]').click(function(e) {
+  if(e.target.value === 'Самовывоз') {
+    $('#optional').hide().val('Самовывоз');
+    $('#labeladress').hide();
+  } else {
+    $('#labeladress').show();
+    $('#optional').show().val('Москва ул. ');
+  }
+})
 </script>
 </body>
 </html>
