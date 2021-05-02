@@ -457,7 +457,7 @@
                                 }
                             </style>
 
-<div class="tagsHeaderContent">
+<div class="tagsHeaderContent uk-child-width-1-3@m uk-grid-small product-inline uk-grid uk-grid-stack">
 
 @foreach($diaposesAmper as $diapose)
 <div style="float:left">
@@ -595,7 +595,6 @@
 
                 <div class="SectionTitle">
                 <div class="rec">
-                <div class="QueryTitle__text">Рекомендации по модели</div>
                             @if(isset($requests['mark_id']))
                             @include($recpath);
                             @endif
