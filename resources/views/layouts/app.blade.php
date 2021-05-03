@@ -648,8 +648,12 @@
         var price = Number($(this).attr("data-price"));
 
         shoppingCart.addItemToCart(name, price, 1);
-        UIkit.notification({
-            message: "Товар успешно добавлен в корзину",
+        UIkit.notification(
+            `<div className="uk-flex uk-flex-middle uk-margin-medium-right">
+     <span>Item Deleted.</span>
+     <a onclick="window.undoDeleteExternal()" data-param='`+ console.log(11)+`' className="uk-button uk-button-primary uk-button-small uk-margin-auto-left">Undo</a>
+</div>`,{
+            //message: "Товар успешно добавлен в корзину",
             status: "success",
             pos: "top-left",
             timeout: 2500,

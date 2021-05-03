@@ -457,11 +457,11 @@
                                 }
                             </style>
 
-<div class="tagsHeaderContent uk-child-width-1-3@m uk-grid-small product-inline uk-grid uk-grid-stack">
+<div class="tagsHeaderContent uk-margin-small uk-grid">
 
 
 @foreach($diaposesAmper as $diapose)
-                                      <div  class ="uk-child-width-1-3@m uk-grid-small product-inline uk-grid uk-grid-stack"  style="float:left; margin: auto;">
+                                      <div  class ="uk-width-1-3@l"  style="">
                                                 <a href="/?priceFrom=1000&priceTo=27000&brands=&depth=&width=&height=&polarity=&capacFrom={{$diapose[0]}}&capacTo={{$diapose[1]}}" class="MiniBtn uk-button uk-button-default" style="    background-color: #2A50B6 !important;     border: none !important; color:#fff !important">
                                                 {{$diapose[0]}} -{{$diapose[1]}} Ач</a>
                                    </div>
