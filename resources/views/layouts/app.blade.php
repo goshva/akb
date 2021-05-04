@@ -124,7 +124,7 @@
                                 @foreach(\App\Models\Brand::all() as $brand)
                                     <div class="AsideBlock__checkboxBlock">
                                         <input class="AsideBlock__checkboxInput" class="brand__selected"
-                                               id="{{ $brand->name }}"
+                                               id="i{{ $brand->name }}"
                                                onclick="brands.push(this.previousElementSibling.id);" type="checkbox"
                                                value="{{ $brand->name }}">
                                         <label class="AsideBlock__checkboxLabel"
@@ -649,11 +649,10 @@
 
         shoppingCart.addItemToCart(name, price, 1);
         UIkit.notification(
-            `<div className="uk-flex uk-flex-middle uk-margin-medium-right">
-     <span>Item Deleted.</span>
-     <a onclick="window.undoDeleteExternal()" data-param='`+ console.log(11)+`' className="uk-button uk-button-primary uk-button-small uk-margin-auto-left">Undo</a>
+            `<div   data-fancybox="" data-src="#cart-wrapper" className="uk-flex uk-flex-middle uk-margin-medium-right">
+     <span>Товар успешно добавлен в корзину</span>
 </div>`,{
-            //message: "Товар успешно добавлен в корзину",
+         //   message: "Товар успешно добавлен в корзину",
             status: "success",
             pos: "top-left",
             timeout: 2500,
