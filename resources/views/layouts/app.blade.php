@@ -487,7 +487,7 @@
             <br>
             <div class="uk-margin-small">
             <label for="optional" id="labeladress">Адрес</label>
-            <input type="text" id="optional" class="uk-input pizdes delivery" name="delivery" value="Москва ул. ">
+            <input type="text" id="optional" class="uk-input pizdes delivery" name="delivery" value="" placeholder = "Введите адрес">
 
 
                 <input type="hidden" name="products" value="" class="cart-products">

@@ -25,6 +25,7 @@
                             <th scope="col">Название</th>
                             <th scope="col">Создано</th>
                             <th scope="col">Телефон</th>
+                            <th scope="col">Адрес</th>
                             <th scope="col"></th>
                         </tr>
                         </thead>
@@ -40,6 +41,8 @@
                                 <td>
                                     {{ $order->phone }}
                                 </td>
+                                <td>{{ $order->delivery }}</td>
+
                                 <td>
                                     <div class="dropdown custom-dropdown mb-0">
                                         <div class="btn sharp btn-primary tp-btn" data-toggle="dropdown" aria-expanded="false">

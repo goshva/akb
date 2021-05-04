@@ -347,7 +347,7 @@
 
                                 <div class="uk-width-1-4@l">
                                     <label for="model">Выберите модель</label> <br>
-                                    <select name="model_id" id="model" class="models" required style="width:100%">
+                                    <select name="model_id" id="model" class="models"  style="width:100%">
                                     <option value="" selected disabled hidden>Выбрать</option>
                                         @if (isset($requests['model_name']))
                                                 <option value="{{ $requests['model_id'] }}">{{ $requests['model_name']}}</option>
@@ -358,7 +358,7 @@
                                 </div>
                                 <div class="uk-width-1-4@l">
                                     <label>Выберите поколение</label> <br>
-                                    <select name="generation_id" class="generations" required style="width:100%">
+                                    <select name="generation_id" class="generations"  style="width:100%">
                                     <option value="" selected disabled hidden>Выбрать</option>
                                         @if (isset($requests['generation_name']))
                                                 <option value="{{ $requests['generation_id'] }}">{{ $requests['generation_name'] }}</option>
@@ -369,7 +369,7 @@
                                 </div>
                                 <div class="uk-width-1-4@l">
                                     <label >Выберите двигатель</label> <br>
-                                    <select name="engine_id" class="engines" required style="width:100%">
+                                    <select name="engine_id" class="engines"  style="width:100%">
                                     <option value="" selected disabled hidden>Выбрать</option>
                                         @if (isset($requests['engine_name']))
                                                 <option value="{{ $requests['engine_id'] }}">{{ $requests['engine_name'] }}</option>
@@ -672,6 +672,20 @@
         <script>
         
         let searchParams = new URLSearchParams(window.location.search);
+
+        if (typeof localStorage.models !== 'undefined' && localStorage.models !== null){
+                JSON.parse(localStorage.models).forEach(element => renewOptions('.models',element));
+        }
+        if (typeof localStorage.generations !== 'undefined' && localStorage.generations !== null){
+                JSON.parse(localStorage.generations).forEach(element => renewOptions('.generations',element));
+        }
+        if (typeof localStorage.engines !== 'undefined' && localStorage.generations !== null){
+                JSON.parse(localStorage.engines).forEach(element => renewOptions('.engines',element));
+        }        
+            function renewOptions(tagetid,element){
+                $(tagetid).append('<option value="'+element.id+'">'+element.name+'</option>')
+        }
+
             $(".engines").val(searchParams.get('engine_id'));
 
             $(".generations").val(searchParams.get('generation_id'));
@@ -679,6 +693,8 @@
             $(".models").val(searchParams.get('model_id'));
 
             $(".marks").val(searchParams.get('mark_id'));
+
+
             
             $(".marks").on('change keyup focus', function (){
                 let marka = $(this).val();
@@ -686,7 +702,7 @@
                     url: "/marka/"+marka,
                     method: "GET",
                     success: function (response) {
-                        console.log(response)
+                        localStorage.setItem('models', JSON.stringify(response));
                         let models = [];
                         //
                         models.push(`
@@ -708,7 +724,7 @@
                     url: "/models/"+models,
                     method: "GET",
                     success: function (response) {
-                        console.log(response)
+                        localStorage.setItem('generations', JSON.stringify(response));
                         let models = [];
                         //
                         models.push(`
@@ -730,7 +746,8 @@
                     url: "/engine/"+models,
                     method: "GET",
                     success: function (response) {
-                        console.log(response)
+                        localStorage.setItem('engine', JSON.stringify(response));
+
                         let models = [];
                         //
                         models.push(`
