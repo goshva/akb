@@ -2851,7 +2851,7 @@ i {
 .title-post {
     font-weight: 700;
     font-size: 20px;
-    border-left: 4px solid red;
+    border-left: 4px solid #2a50b6;
     padding-left: 10px;
     margin-top: 20px;
 }
@@ -2870,8 +2870,8 @@ i {
 /*# sourceMappingURL=maps/dz.min.css.map */
 .banners {display:none}
 .text-post ul {
-    list-style-type: disc;
-    padding-left: 2%!important;
+/*    list-style-type: disc;
+    padding-left: 2%!important; */
 }
 .text-post p {
 padding-top: 15px!important;
