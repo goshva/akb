@@ -14,6 +14,15 @@
                         $recpath = $recpath.strtolower($markname);
 
                     }
+                    elseif ($requests['mark_id'] == 5) {
+                        $recpath = $recpath."uaz";
+                    }
+                    elseif ($requests['mark_id'] == 76) {
+                        $recpath = $recpath."gaz";
+                    }                    
+                    elseif ($requests['mark_id'] == 93) {
+                        $recpath = $recpath."vaz";
+                    }
                     else {
                         $recpath = "rec.nomodel";
 
@@ -598,8 +607,10 @@
 
                 <div class="SectionTitle">
                 <div class="rec">
+                    <h2 class="SectionTitle__text">Рекомендации по марке</h2>
+
                             @if(isset($requests['mark_id']))
-                            @include($recpath);
+                            @include($recpath)
                             @endif
                             </div></div>
 

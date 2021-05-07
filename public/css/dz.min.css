@@ -2877,3 +2877,16 @@ i {
 padding-top: 15px!important;
 padding-bottom: 10px!important;
 }
+
+.rec{
+    background-color: #fff;
+    padding: 26px;
+    margin-top: 8px;
+    border-radius: 8px;
+}
+.rec h2 {
+    paddind-bottom: 10px;
+}
+.rec ul li {
+    padding-left: 30px;
+}
