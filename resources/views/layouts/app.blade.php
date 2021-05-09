@@ -343,7 +343,6 @@
 
                     <div class="navbar__phone uk-visible@s">
                         <a href="tel:{{ trim($settings->phone) }}" class="navbar__phoneText">{{ $settings->phone }}</a>
-                        <a href="tel:89256019089" class="navbar__phoneText">+7 925 601-90-89</a>
                         <span class="navbar__phoneCity">{{ $settings->work_time }}</span>
                     </div>
 
@@ -494,7 +493,7 @@
             </div>
             <button type="submit" class="Product__btn">Оформить заказ</button>
         </form>
-        <small>*Самовывоз с адреса <strong>МКАД, 65-й километр, вл420</strong></small>
+        <small>*Самовывоз с адреса <strong>МКАД, 65-й километр, вл 420</strong></small>
 
     </div>
     <div id="section2" class="uk-visible@m" uk-sticky="media: @m">
