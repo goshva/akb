@@ -60,6 +60,24 @@
     <x-jet-nav-link href="{{ route('recommendation') }}" class="navbar__navLink">
         {{ __('Рекомендации') }}
     </x-jet-nav-link>
+
+
+    <div uk-dropdown="mode: click">
+    @php
+    $files = File::allFiles(resource_path('views/rec'));
+    foreach ($files as &$file) {
+        $name = explode(".",(pathinfo($file)['filename']));
+
+    @endphp
+        <ul class="uk-nav uk-dropdown-nav">
+            <li><a href="/recommendation/{{$name[0]}}">{{strtoupper($name[0])}}</a></li>
+        </ul>
+    @php
+    }
+    @endphp
+
+
+    </div>
 </li>
 
 

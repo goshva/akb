@@ -84,7 +84,7 @@ Route::prefix('/info')->group(function (){
 });
 
 Route::get('/recommendation/{id}', function ($id){
-    return view('rec.' .$id);
+    return view('recommendation',['id' => $id]);
 });
 Route::get('/recommendation', function (){
     return  view('recommendation');
