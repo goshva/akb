@@ -872,7 +872,7 @@
             $('.psevo_banners').hide()
             $('.banners').show().slick({
                 autoplay: true,
-                autoplaySpeed: 2000,
+                autoplaySpeed: 4000,
                 // appendArrows: $(".Buttons"),
                 nextArrow: next,
                 prevArrow: prev,
