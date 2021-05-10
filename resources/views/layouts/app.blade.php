@@ -343,6 +343,7 @@
 
                     <div class="navbar__phone uk-visible@s">
                         <a href="tel:{{ trim($settings->phone) }}" class="navbar__phoneText">{{ $settings->phone }}</a>
+                        <a href="tel:{{ trim($settings->telegram) }}" class="navbar__phoneText">{{ $settings->telegram }}</a>
                         <span class="navbar__phoneCity">{{ $settings->work_time }}</span>
                     </div>
 
