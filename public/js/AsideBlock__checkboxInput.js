@@ -22,6 +22,8 @@ $.each(checkboxes, function (index, checkbox) {
         } else {
             brands.push(this.previousElementSibling.id);
             $("#brands").val(JSON.stringify(brands))
+            $("#brands2").val(JSON.stringify(brands))
+
         }
     } else {
         if ($(this).hasClass('xyi')){
@@ -31,6 +33,8 @@ $.each(checkboxes, function (index, checkbox) {
             brands.remove(this.previousElementSibling.id);
 
             $("#brands").val(JSON.stringify(brands))
+            $("#brands2").val(JSON.stringify(brands))
+
         }
     }
   });

@@ -115,6 +115,8 @@
                 </ul>
             </div>
             <div class="brand">
+            <input type="hidden" name="brands" value="" id="brands2">
+
                 <ul uk-accordion="multiple: true">
                     <li class="accordLi uk-open">
                         <a class="uk-accordion-title accordLi__title" href="#">Бренд</a>
@@ -124,7 +126,7 @@
                                 @foreach(\App\Models\Brand::all() as $brand)
                                     <div class="AsideBlock__checkboxBlock">
                                         <input class="AsideBlock__checkboxInput" class="brand__selected"
-                                               id="i{{ $brand->name }}"
+                                               id="{{ $brand->name }}"
                                                onclick="brands.push(this.previousElementSibling.id);" type="checkbox"
                                                value="{{ $brand->name }}">
                                         <label class="AsideBlock__checkboxLabel"

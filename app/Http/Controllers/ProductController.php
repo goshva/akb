@@ -66,15 +66,7 @@ class ProductController extends Controller
                 $items = $items->whereIn('polarity', $polarity);
             }
             if (isset($requests['capacFrom']) && isset($requests['capacTo'])){
-                if ($requests['brands'] ==""){
-                    $items = Product::where([
-                        ['price', '>=', $priceFrom],
-                        ['price', '<=', $priceTo],
-                        ['capacity', '>=', $capacFrom],
-                        ['capacity', '<=', $capacTo],
-                    ]);
-                 }
-                else {
+                if (isset($requests['brands'])){
                 $brands = json_decode($requests['brands']);
                 $items = Product::where([
                     ['price', '>=', $priceFrom],
@@ -82,7 +74,16 @@ class ProductController extends Controller
                     ['capacity', '>=', $capacFrom],
                     ['capacity', '<=', $capacTo],
                 ])->whereIn('brand_id', $brands);
-                 }
+                }
+            else{
+                $items = Product::where([
+                    ['price', '>=', $priceFrom],
+                    ['price', '<=', $priceTo],
+                    ['capacity', '>=', $capacFrom],
+                    ['capacity', '<=', $capacTo],
+                ]);
+             }
+
             }
             if (isset($requests['brands']) && isset($requests['height'])){
                 $items = $items->where('height', '=', $requests['height'])->whereIn('brand_id', $brands);
