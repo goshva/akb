@@ -518,7 +518,7 @@
                                     <div class="ProductList__footer">
                                         <div class="ProductList__price">
                                             <div class="ProductList__priceText" uk-tooltip="title: Цена при сдаче старого аккумулятора;pos: top-left">от {{ $product->trade_price }} ₽</div>
-                                            <div class="Product__priceFrom" uk-tooltip="title: Цена без обмена;pos: top-left">{{ $product->trade_price}} ₽</div>
+                                            <div class="Product__priceFrom" uk-tooltip="title: Цена без обмена;pos: top-left">{{ $product->price}} ₽</div>
                                         </div>
 
                                         <div class="ProductList__btn">
@@ -565,7 +565,7 @@
                                                     class="Product__descriptionCustom">{{ $product->polarity }}</span></p>
                                             <div class="Product__price uk-hidden@m">
                                                 <div class="Product__priceText" uk-tooltip="title: Цена при обмене старого аккумулятора; pos: top-left">от {{ $product->trade_price }} ₽</div>
-                                                <div class="Product__priceFrom"  uk-tooltip="title: Цена без обмена; pos: top-left">{{ $product->trade_price }} ₽</div>
+                                                <div class="Product__priceFrom"  uk-tooltip="title: Цена без обмена; pos: top-left">{{ $product->price }} ₽</div>
                                             </div>
                                         </div>
                                     </div>
