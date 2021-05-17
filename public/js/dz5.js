@@ -214,7 +214,7 @@ function getParameterByName(name, url = window.location.href) {
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 
-document.addEventListener("DOMContentLoaded", function(event) {
+$( document ).ready(function() {
   var capacFrom =  getParameterByName("capacFrom");
   var capacTo =getParameterByName("capacTo");
 
