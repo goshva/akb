@@ -64,8 +64,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
     if (url.searchParams.get('capacFrom')) {
         $("#capacFrom").val(getParameterByName("capacFrom"));
     }
+    else {
+        $("#capacFrom").val("1");
+    }
 
     if (url.searchParams.get('capacTo')) {
         $("#capacTo").val(getParameterByName("capacTo"));
+    }
+    else {
+        $("#capacTo").val("240");
     }
   });
