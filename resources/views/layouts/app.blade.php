@@ -48,12 +48,25 @@
 
 </head>
 <body>
+@php
+
+    $settings = \App\Models\Settings::all()->first();
+
+@endphp
+<div class="sdai">
+    <div class="navbar__phone uk-hidden@s">
+                        <a style="color:#fff" href="tel:{{ trim($settings->phone) }}" class="navbar__phoneText">{{ $settings->phone }}</a>
+                        <a style="color:#fff" href="tel:{{ trim($settings->telegram) }}" class="navbar__phoneText">{{ $settings->telegram }}</a>
+</div>
+</div>
 <div class="sdai">
     <img src="/img/24-7.png" alt="" width="32">
     <div style="margin-left: 10px">
         Сдай старый аккумулятор и получи скидку от 50 до 3000₽ на новый
     </div>
-   </div>
+</div>
+
+
 <style>
     .sdai {
         background-color: #2A50B6;
@@ -72,11 +85,7 @@
         }
     }
 </style>
-@php
 
-    $settings = \App\Models\Settings::all()->first();
-
-@endphp
 
 <form id="tagsFilter" uk-offcanvas="flip: true; overlay: true; stack: true">
     <button class="uk-offcanvas-close tagsClose" type="button" uk-close></button>
@@ -123,7 +132,7 @@
                         <div class="uk-accordion-content accordLi__content">
 
                             <div class="brand__content">
-                                @foreach(\App\Models\Brand::all() as $brand)
+                                @foreach(\App\Models\Brand::orderBy('name')->get(); as $brand)
                                     <div class="AsideBlock__checkboxBlock">
                                         <input class="AsideBlock__checkboxInput" class="brand__selected"
                                                id="{{ $brand->name }}"
