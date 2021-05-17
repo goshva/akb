@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     var capacFrom =  getParameterByName("capacFrom");
     var capacTo =getParameterByName("capacTo");
 
-    url = new URL(window.location.href);
+    var url = new URL(window.location.href);
 
     if (url.searchParams.get('capacFrom')) {
         $("#capacFrom").val(getParameterByName("capacFrom"));
