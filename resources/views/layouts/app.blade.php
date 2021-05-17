@@ -208,13 +208,13 @@
                                 <div class="AsideBlock__checkboxBlock">
                                     <div class="uk-inline">
                                     <span class="uk-form-icon AsideBlock__inputText">от</span>
-                                                        <input class="uk-input AsideBlock__input" id="capacFrom" name="capacFrom" type="text" value="">
+                                                        <input class="uk-input AsideBlock__input" id="capacFrom"  class="capacFrom" name="capacFrom" type="text" value="1">
 
                                     </div>
                                     <div class="uk-inline">
 
                                     <span class="uk-form-icon AsideBlock__inputText">до</span>
-                                                        <input class="uk-input AsideBlock__input" id="capacTo" name="capacTo" type="text" value="">
+                                                        <input class="uk-input AsideBlock__input" id="capacTo" class="capacTo" name="capacTo" type="text" value="240">
                                                         </div>
 
                                 </div>
