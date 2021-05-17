@@ -218,6 +218,9 @@
                                                         </div>
 
                                 </div>
+                                <div class="AsideBlock__sliderBlock">
+                                    <div id="capacSlider2" class="AsideBlock__sliderPrice"></div>
+                                </div>                                
                             </div>
 
                         </div>
@@ -613,9 +616,12 @@
         position: fixed;
         left: 20px;
         bottom: 20px;
-        z-index: 10000;
+        z-index: 9999;
     }
+    #tagsFilter{
+        z-index: 10000;
 
+    }
 </style>
 
 <!-- Optional JavaScript -->
@@ -631,7 +637,7 @@
 <script src="/js/uikit.min.js"></script>
 <script src="/js/uikit-icons.min.js"></script>
 <!-- My JavaScript -->
-<script src="/js/dz5.js"></script>
+<script src="/js/dz6.js"></script>
 <script src="/js/AsideBlock__checkboxInput.js"></script>
 <script src="/js/Catalog.js"></script>
 @yield('scripts')

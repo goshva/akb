@@ -678,7 +678,26 @@
                 $("#section4 #capacSlider").on("slidechange slidecreate slide", function( event, ui ) {
                     $('#section4 #capacFrom').val($("#capacSlider").slider('values', 0));
                     $('#section4 #capacTo').val($("#capacSlider").slider('values', 1));
-                });                
+                });
+                $("#capacSlider2").slider({
+                    animate: "slow",
+                    max: {{ $maxA }},
+                    min: {{ $minA }},
+                    range: true,
+                    @if(isset($requests['capacFrom']) && isset($requests['capacTo']))
+                        values: [{{ $requests['capacFrom'] }}, {{ $requests['capacTo'] }}],
+                    @else
+                        values: [1,400],
+                    @endif                    
+                    //values: [{{ $minA }},{{ $maxA }}]
+                });
+                $('#section4 #capacFrom').val($("#capacSlider2").slider('values', 0));
+                $('#section4 #capacTo').val($("#capacSlider2").slider('values', 1));
+                $("#capacSlider2").on("slidechange slidecreate slide", function( event, ui ) {
+                    console.log(1)
+                    $('#capacFrom').first().val($("#capacSlider2").slider('values', 0));
+                    $('#capacTo').first().val($("#capacSlider2").slider('values', 1));
+                });                        
         </script>
         <script>
         
