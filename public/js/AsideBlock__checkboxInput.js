@@ -55,8 +55,14 @@ function getParameterByName(name, url = window.location.href) {
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 
-document.addEventListener("DOMContentLoaded", function(event) { 
-    $("#capacFrom").val(getParameterByName("capacFrom"));
-    $("#capacTo").val(getParameterByName("capacTo"));
+document.addEventListener("DOMContentLoaded", function(event) {
+    var capacFrom =  getParameterByName("capacFrom");
+    var capacTo =getParameterByName("capacTo");
 
+    if (capacFrom !== null){
+        $("#capacFrom").val(getParameterByName("capacFrom"));
+    }
+    if (capacTo !== null){
+        $("#capacTo").val(getParameterByName("capacTo"));
+    }
   });
