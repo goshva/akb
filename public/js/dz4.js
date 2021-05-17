@@ -205,3 +205,32 @@ $.ajaxSetup({
   //     }
   // })
   
+function getParameterByName(name, url = window.location.href) {
+  name = name.replace(/[\[\]]/g, '\\$&');
+  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+      results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return '';
+  return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+document.addEventListener("DOMContentLoaded", function(event) {
+  var capacFrom =  getParameterByName("capacFrom");
+  var capacTo =getParameterByName("capacTo");
+
+  var url = new URL(window.location.href);
+
+  if (url.searchParams.get('capacFrom')) {
+      $("#capacFrom").val(getParameterByName("capacFrom"));
+  }
+  else {
+      $("#capacFrom").val("1");
+  }
+
+  if (url.searchParams.get('capacTo')) {
+      $("#capacTo").val(getParameterByName("capacTo"));
+  }
+  else {
+      $("#capacTo").val("240");
+  }
+});
