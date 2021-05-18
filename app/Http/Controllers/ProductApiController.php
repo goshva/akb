@@ -124,8 +124,12 @@ class ProductApiController extends Controller
                     || $product_img->getMimeType() == 'image/jpeg'
                     || $product_img->getMimeType() == 'image/webp'
                 ){
-                    $path = $product_img->storePubliclyAs('public/products', $id.'_'.$request->article.'.'.$extension);
-                    $product->img = '/storage/'.$path = str_replace( 'public/', '', $path.'?v='.time());
+                    #$path = $product_img->storePubliclyAs('public/products', $id.'_'.$request->article.'.'.$extension);
+                    $picname = $id.'_'.$request->article.'.'.$extension;
+                    $product_img->move(public_path()."/img/small",$picname); 
+                    \File::copy(public_path()."/img/small/".$picname, public_path()."/img/big/".$picname); 
+
+                    $product->img = $picname; #$path; #'/storage/'.$path = str_replace( 'public/', '', $path.'?v='.time());
                 }
             }
             $product->save();

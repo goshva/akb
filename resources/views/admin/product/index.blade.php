@@ -34,7 +34,9 @@
                         <tr>
                             <td>{{ $product->id }}</td>
                             <td>{{ $product->name }}</td>
-                            <td><img src="{{ $product->img }}" width="30" alt="{{ $product->name }}"></td>
+                            @if(file_exists( public_path()."/img/small/".$product->img)) 
+                            <td><img src="{{'/img/small/'.$product->img }}" width="30" alt="{{ $product->name }}"></td>
+                            @endif
                             <td>{{ date('d.m.Y H:i:s', strtotime($product->created_at)) }}</td>
                             <td>₽ {{ $product->price }}</td>
                             <td>
